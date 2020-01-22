@@ -1,1 +1,3 @@
-# lpzJS
+# Documentation
+
+Comming soon
