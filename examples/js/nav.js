@@ -77,7 +77,7 @@ function latNav(nav){
 
     open.addEventListener('click', function(){
     	var pos = (-1) * screen.width;
-    	var id = setInterval(frame, 5);
+    	var id = setInterval(frame, 1);
     	function frame() {
 		    if (pos >= 0) {
 		    	nav.style.left = '0px';
