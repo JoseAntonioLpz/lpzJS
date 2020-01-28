@@ -11,8 +11,8 @@
 <!--<script type="text/javascript" src="js/graphic.js" defer></script>
 <script type="text/javascript" src="js/progressbar.js" defer></script>
 <script type="text/javascript" src="js/timer.js" defer></script>
-<script type="text/javascript" src="js/lpz.js" defer></script>
-<script type="text/javascript" src="js/lpz.min.js" defer></script>-->
+<script type="text/javascript" src="js/lpz.js" defer></script>-->
+<script type="text/javascript" src="js/lpz.min.js" defer></script>
 <script type="text/javascript" src="js/nav.js" defer></script>
 
 <style>
@@ -42,14 +42,20 @@
 		left: 2px;
 	}
 
+	div.pepe{
+		height: 3000px;
+		width: 100%;
+	}
+
 </style>
 
 </head>
 
 <body>
+	<!-- NAV EXAMPLE -->
 	<div id="nav_lpz" data-width="300px" data-cnav="white" data-chover="#aeea7c" data-sep="15px" data-fcolor="black">
 		<div class="logo_lpz" data-clogo="#aeea7c" data-img='images/flor.jpg'>
-			<div id="close_lpz" data-img='images/equis.png'></div>
+			<div id="close_lpz" data-img='images/equis.png' data-width='50px' data-height='50px'></div>
 		</div>
 		<div class="sup_lpz">
 			<a href="#">Enlace 1</a>
@@ -64,12 +70,30 @@
 
 	<div id="open_lpz" data-img='images/open.png'></div>
 
-	<!--<canvas class='graphic_bar_lpz' width='500' height='300' data-json='[{"name":"Enero","value":100},{"name":"Febrero","value":300},{"name":"Marzo","value":200},{"name":"Abril","value":200},{"name":"Mayo","value":400},{"name":"Junio","value":200},{"name":"Julio","value":200},{"name":"Agosto","value":200},{"name":"Septiembre","value":200},{"name":"Octubre","value":350},{"name":"Noviembre","value":200},{"name":"Diciembre","value":200}]' data-min='20' data-max='30' data-sep='10' data-color='blue' data-valcol='white' data-title='cerezas por metro cuadrado'></canvas>
+	<!-- NAV EXAMPLE END -->
+
+	<!-- TOP BUTTON EXAMPLE -->
+	<div id="top_but_lpz" data-color="orange" data-width='50px' data-vel='150' data-img='images/paloma.png' data-posx='20px' data-posy='300px'></div>
+	<!-- TOP BUTTON EXAMPLE END -->
+
+	<!-- MULTI BUTTON EXAMPLE -->
+	<div id="multi_but_lpz" data-color="blue" data-width='50px' data-img='images/paloma.png' data-posx='20px' data-posy='20px'>
+		<a href="#"></a>
+		<a href="#"></a>
+		<a href="#"></a>
+	</div>
+	<!-- MULTI BUTTON EXAMPLE END -->
+
+	<!-- GRAPHIC EXAMPLE-->
+	<canvas class='graphic_bar_lpz' width='500' height='300' data-json='[{"name":"Enero","value":100},{"name":"Febrero","value":300},{"name":"Marzo","value":200},{"name":"Abril","value":200},{"name":"Mayo","value":400},{"name":"Junio","value":200},{"name":"Julio","value":200},{"name":"Agosto","value":200},{"name":"Septiembre","value":200},{"name":"Octubre","value":350},{"name":"Noviembre","value":200},{"name":"Diciembre","value":200}]' data-min='20' data-max='30' data-sep='10' data-color='blue' data-valcol='white' data-title='cerezas por metro cuadrado'></canvas>
 
 	<canvas class='circle_lpz' width='300' height='300' data-json='[{"name":"Enero","value":400, "color": "red"},{"name":"Febrero","value":300, "color": "blue"},{"name":"Marzo","value":200, "color": "green"},{"name":"Abril","value":200, "color": "yellow"},{"name":"Mayo","value":333, "color": "orange"}]' data-title='cerezas por metro cuadrado'></canvas>
 
 	<canvas class='graphic_lpz' width='500' height='200' data-json='[{"name":"Enero","value":100},{"name":"Febrero","value":300},{"name":"Marzo","value":200},{"name":"Abril","value":200},{"name":"Mayo","value":400},{"name":"Junio","value":200},{"name":"Julio","value":500},{"name":"Agosto","value":150}]' data-sep='55' data-title='cerezas por metro cuadrado' data-color='blue'></canvas>
+	<!-- GRAPHIC EXAMPLE END -->
 	<hr>
+
+	<!-- PROGRESS BAR EXAMPLE -->	
 	<div class='canvasContainer'>
 		<canvas class='progress_bar_lpz' width='200' height='20' data-text='Fuerza' data-percent='25' data-color='green' data-ctext='white' data-cpercent='black' data-font='10px Arial'></canvas>
 
@@ -91,13 +115,20 @@
 		<canvas class='progress_half_circle_lpz' width='100' height='100' data-text='Habilidad' data-percent='89' data-color='blue' data-font='12px Arial' data-bulk='5' data-mostrate='0'></canvas>
 
 		<canvas class='progress_half_circle_lpz' width='100' height='100' data-text='Canvas' data-percent='100' data-color='green' data-font='20px Arial' data-bulk='5' data-mostrate='1'></canvas>
-	</div>	
-	<hr>
+	</div>
 
+	<!-- PROGRESS BAR EXAMPLE END -->		
+	<hr>
+	<!-- TIMER EXAMPLE -->
 	<canvas class='timer_lpz' width='200' height='50' data-time='2020-11-24' data-font='20px Bangers' data-format='0'></canvas>
 
 	<canvas class='timer_lpz' width='200' height='50' data-time='2021-11-24' data-font='20px Bangers' data-format='0'></canvas>
 
-	<canvas class='timer_lpz' width='200' height='50' data-time='2020-3-24' data-font='20px Bangers' data-format='0'></canvas>-->
+	<canvas class='timer_lpz' width='200' height='50' data-time='2020-3-24' data-font='20px Bangers' data-format='0'></canvas>
+	<!-- TIMER EXAMPLE END -->
+
+<div class="pepe" style="background-color: orange;"></div>
+<div class="pepe" style="background-color: blue;"></div>
+<div class="pepe" style="background-color: green;"></div>
 </body>
 </html> 
