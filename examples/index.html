@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Canvas</title>
+
+<!--<link rel="stylesheet" type="text/css" href="css/fontAwesome4.7.css">-->
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
 <!--<script type="text/javascript" src="js/graphic.js" defer></script>
 <script type="text/javascript" src="js/progressbar.js" defer></script>
 <script type="text/javascript" src="js/timer.js" defer></script>
@@ -24,14 +29,26 @@
 		display: inline-block;
 		margin-right: 20px;
 	}
+
+	/*Links ICON*/
+	#nav_lpz a{
+		position: relative;
+	}
+
+	#nav_lpz a:before{
+		font-family: FontAwesome;
+		content:"\f007";
+		position: absolute;
+		left: 2px;
+	}
+
 </style>
 
 </head>
 
 <body>
-
-	<div id="nav_lpz" data-width="300px" data-clogo="#aeea7c" data-cnav="white" data-chover="#aeea7c">
-		<div class="logo_lpz">
+	<div id="nav_lpz" data-width="300px" data-cnav="white" data-chover="#aeea7c" data-sep="15px" data-fcolor="black">
+		<div class="logo_lpz" data-clogo="#aeea7c" data-img='images/flor.jpg'>
 			<div id="close_lpz" data-img='images/equis.png'></div>
 		</div>
 		<div class="sup_lpz">

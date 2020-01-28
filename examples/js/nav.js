@@ -19,9 +19,13 @@ function latNav(nav){
 
  	var llogo = document.getElementsByClassName('logo_lpz');
  	for (let logo of llogo) {
- 		logo.style.backgroundColor = nav.dataset.clogo;
+ 		logo.style.backgroundColor = logo.dataset.clogo;
 	 	logo.style.width = '100%';
 	 	logo.style.height = '150px';
+	 	logo.style.backgroundImage = "url('" + logo.dataset.img + "')";
+    	logo.style.backgroundRepeat = "no-repeat";
+    	logo.style.backgroundPosition = "center center";
+    	logo.style.backgroundSize = "cover";
  	}
  	
  	var sup = document.getElementsByClassName('sup_lpz');
@@ -43,8 +47,10 @@ function latNav(nav){
 		a.style.height = '40px';
 		a.style.borderBottom = '1px solid black';
 		a.style.lineHeight = '40px';
-		a.style.paddingLeft = '10px';
+		a.style.paddingLeft = nav.dataset.sep;
 		a.style.textDecoration = 'none';
+		a.style.color = nav.dataset.fcolor;
+		console.log(nav.dataset.fcolor);
 
 		a.addEventListener("mouseover", function(){
 			this.style.backgroundColor = nav.dataset.chover;
@@ -60,11 +66,18 @@ function latNav(nav){
     close.style.position = 'absolute';
     close.style.left = '0';
     close.style.backgroundImage = "url('" + close.dataset.img + "')";
-    close.style.width = '50px';
-    close.style.height = '50px';
     close.style.backgroundRepeat = "no-repeat";
     close.style.backgroundPosition = "center center";
     close.style.backgroundSize = "contain";
+    close.style.width = '50px';
+    close.style.height = '50px';
+
+    close.addEventListener('click', function(){
+    	var pos = 0;
+    	var id = setInterval(function(){pos = frame(nav, pos, (-1) * screen.width, id, false)}, 1);
+
+    	pos = frame(nav, pos, (-1) * screen.width, id, false);
+    });
 
     var open = document.getElementById('open_lpz');
 
@@ -77,29 +90,23 @@ function latNav(nav){
 
     open.addEventListener('click', function(){
     	var pos = (-1) * screen.width;
-    	var id = setInterval(frame, 1);
-    	function frame() {
-		    if (pos >= 0) {
-		    	nav.style.left = '0px';
-		      	clearInterval(id);
-		    } else {
-		      	pos = pos + 20;
-		      	nav.style.left = pos + 'px';
-		    }
-		  }
-    });
+    	var id = setInterval(function(){pos = frame(nav, pos, 0, id, true)}, 1);
 
-    close.addEventListener('click', function(){
-    	var pos = 0;
-    	var id = setInterval(frame, 1);
-    	function frame() {
-		    if (pos <= (-1) * screen.width) {
-		      	nav.style.left = (-1) * screen.width + 'px';
-		      	clearInterval(id);
-		    } else {
-		      	pos = pos - 20;
-		      	nav.style.left = pos + 'px';
-		    }
-		  }
+    	pos = frame(nav, pos, 0, id, true);
+
     });
+}
+
+function frame(elem, pos, posF, id, op) {
+	let res = (op) ? 30 : -20;
+	pos = pos + res;
+
+	if ((op && pos >= posF) || (!op && pos <= posF)) {
+	  	elem.style.left = posF + 'px';
+	  	clearInterval(id);
+	} else {
+	  	elem.style.left = pos + 'px';
+	}
+
+	return pos;
 }
