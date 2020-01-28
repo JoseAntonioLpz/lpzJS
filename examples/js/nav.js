@@ -160,8 +160,8 @@ function scrollTopAnimate(posAct, id, vel){
 }
 
 function multiBut(but){
-	but.style.width = (but.dataset.width != undefined) ? but.dataset.width : '50px';
-	but.style.height = (but.dataset.width != undefined) ? but.dataset.width : '50px';
+	but.style.width = '50px';
+	but.style.height = '50px';
 	but.style.backgroundColor = (but.dataset.color) ? but.dataset.color : 'orange';
 	but.style.position = 'fixed';
 	but.style.bottom = (but.dataset.posy != undefined) ? but.dataset.posy : '20px';
@@ -174,24 +174,42 @@ function multiBut(but){
     but.style.backgroundPosition = "center center";
     but.style.backgroundSize = "contain";
 
+    but.dataset.click = true;
+
     var al = but.getElementsByTagName('a');
 
+    var pos = 60;
     for(a of al){
     	a.style.position = 'absolute';
     	a.style.bottom = '-100px';
-    	//a.style.right = (but.dataset.posx != undefined) ? (but.dataset.posx / 2)  + 'px': '10px';
-    	a.style.right = '0px';
+    	a.style.right = '5px';
     	a.style.display = 'block';
-    	a.style.width = (a.dataset.width != undefined) ? a.dataset.width : '40px';
-    	a.style.height = (a.dataset.width != undefined) ? a.dataset.width : '40px';
+    	a.style.width = '40px';
+    	a.style.height = '40px';
     	a.style.borderRadius = '50%';
     	a.style.backgroundColor = (but.dataset.color) ? but.dataset.color : 'orange';
+    	a.style.boxShadow = '0 8px 16px 0 rgba(0,0,0,0.2)';
+    	a.dataset.pos = pos;
+    	pos += 50;
+
+    	a.style.backgroundImage = "url('" + a.dataset.img + "')";
+	    a.style.backgroundRepeat = "no-repeat";
+	    a.style.backgroundPosition = "center center";
+	    a.style.backgroundSize = "contain";
     }
 
     but.addEventListener('click', function(){
-    	for(a of al){
-	    	//a.style.bottom = (but.dataset.posy != undefined) ? (but.dataset.posy / 2) + 'px' : '20px';
-	    	a.style.bottom = '0px';
-	    }
+    	console.log('click');
+    	if(but.dataset.click == 'true'){
+    		but.dataset.click = 'false';
+    		for(a of al){
+	    		a.style.bottom = a.dataset.pos + 'px';
+		    }
+    	}else{
+    		but.dataset.click = 'true';
+    		for(a of al){
+	    		a.style.bottom = '-100px';
+		    }
+    	}
     });
 }
