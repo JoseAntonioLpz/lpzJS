@@ -9,18 +9,18 @@ Si añades una funcionalidad nueva o mejoras alguna ya existente tal vez te inte
 
 Hasta el momento esta librería da soporte para:
 
-- Gráficas
-- Barras de progreso
-- Temporizadores
-- Utilidades de navegación
+- [Gráficas](#gráficas)
+- [Barras de progreso](#barras-de-progreso)
+- [Temporizadores](#temporizador)
+- [Utilidades de navegación](#navegación)
 
 ## Gráficas
 
 Puedes dibujar diferentes tipos de gráficas usando esta librería:
 
-- Gráficas de barras
-- Gráficas circulares
-- Gráficas de lineales
+- [Gráficas de barras](#gráficas-de-barras)
+- [Gráficas circulares](#gráficas-circulares)
+- [Gráficas de lineales](#gráficas-lineales)
 
 ### Gráficas de barras
 
@@ -142,9 +142,9 @@ Aquí un ejemplo de un elemento canvas completo:
 
 Puedes dibujar diferentes tipos de gráficas usando esta librería:
 
-- Barras de progreso lineales
-- Barras de progreso circulares
-- Barras de progreso semi-circulares
+- [Barras de progreso lineales](#barras-de-progreso-lineales)
+- [Barras de progreso circulares](#barras-de-progreso-circulares)
+- [Barras de progreso semi-circulares](#barras-de-progreso-semi-circulares)
 
 ### Barras de progreso lineales
 
@@ -248,6 +248,12 @@ data-font='20px Bangers' data-format='0'></canvas>
 
 ## Navegación
 
+lpzJS brinda diferentes utilidades para la navegación de nuestro sitio:
+
+- [Menú desplegable](#menú-desplegable)
+- [Botón to Top](#botón-top)
+- [Botón múltiple](#botón-múltiple)
+
 ### Menú desplegable
 
 Para crear un menú desplegable basta con añadir un elemento **div** a nuestros HTML con el *id*: **nav_lpz**.
@@ -321,7 +327,7 @@ data-sep="15px" data-fcolor="black">
 	data-height='50px'></div>
 ```
 
-### Botón Top
+### Botón to Top
 
 Podemos crear un boton para navegar a la parte superior de nuestra web con un elemento **div** dandole el siguiente *id*: *top_but_lpz*, podemos personalizar el boton con los siguiente atributos:
 
