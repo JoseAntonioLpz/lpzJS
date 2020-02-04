@@ -95,8 +95,8 @@ function latNav(nav){
     open.style.backgroundRepeat = "no-repeat";
     open.style.backgroundPosition = "center center";
     open.style.backgroundSize = "contain";
-    open.style.width = '50px';
-    open.style.height = '50px';
+    open.style.width = (open.dataset.width != undefined) ? open.dataset.width : '50px';
+    open.style.height = (open.dataset.height != undefined) ? open.dataset.height : '50px';
 
     open.addEventListener('click', function(){
     	var pos = (-1) * screen.width;
@@ -160,8 +160,8 @@ function scrollTopAnimate(posAct, id, vel){
 }
 
 function multiBut(but){
-	but.style.width = '50px';
-	but.style.height = '50px';
+	but.style.width = (but.dataset.width != undefined) ? but.dataset.width : '50px';
+	but.style.height = (but.dataset.width != undefined) ? but.dataset.width : '50px';
 	but.style.backgroundColor = (but.dataset.color) ? but.dataset.color : 'orange';
 	but.style.position = 'fixed';
 	but.style.bottom = (but.dataset.posy != undefined) ? but.dataset.posy : '20px';

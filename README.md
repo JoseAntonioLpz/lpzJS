@@ -244,3 +244,128 @@ Aquí un ejemplo de un elemento canvas completo:
 <canvas class='timer_lpz' width='200' height='50' data-time='2020-11-24' 
 data-font='20px Bangers' data-format='0'></canvas>
 ```
+
+## Navegación
+
+### Menú desplegable
+
+Para crear un menú desplegable basta con añadir un elemento **div** a nuestros HTML con el *id*: **nav_lpz**.
+
+Podemos personalizar nuestro menú desplegable usando los siguiente atributos:
+
+- data-width -> Establece la anchura de nuestro Menú (Por defecto el *75%* de la pantalla).
+- data-cnav -> Establece el color de fondo de nuestro Menú (Por defecto *white*).
+- data-chover -> Establece el color para cuando se hace hover sobre un elemento (Por defecto *white*).
+- data-sep -> Establece la separación izquierda de los elementos del Menú (Por defecto *10px*).
+- data-fcolor -> Establece la fuente de color de los elementos (Por defecto *blue*).
+
+Dentro de este div damos soporte para añadir otros 3 divs diferentes dandoles las siguientes *clases*:
+
+- logo_lpz -> Pensado para la parte superior del menú, podemos personalizar nuestro logo con los siguientes atributos:
+	- data-clogo -> Establece el color de fondo de nuestro logo.
+	- data-img -> Establece un imagen de fondo para nuestro logo.
+- sup_lpz -> Pensado para la parte intermedia del menú, aqui meteremos nuestros enlaces.
+- inf_lpz -> Pensado para la parte inferior del menú, aqui meteremos nuestros enlaces.
+
+Para abrir y cerrar el menú se usan dos elementos, de cualquier tipo (recomendado *div*), que tengan los siguientes *id*:
+
+- open_lpz -> Abre el Menú desplegable.
+	- data-img -> Establece una imagen de fondo para nuestro botón.
+	- data-width -> Establece el ancho de nuestro botón (Por defecto *50px*).
+	- data-height -> Establece la altura de nuestro botón (Por defecto *50px*).
+- close_lpz -> Cierra el Menú desplegable.
+	- data-img -> Establece una imagen de fondo para nuestro botón.
+	- data-width -> Establece el ancho de nuestro botón (Por defecto *50px*).
+	- data-height -> Establece la altura de nuestro botón (Por defecto *50px*).	
+
+Podemos colocar estos botones donde queramos en nuestro DOM.
+
+Es muy normal que los elementos de los Menús desplegables tengan iconos, podemos agregarles iconos usando selectores CSS, aqui os dejamos un ejemplo de como hacerlo:
+
+```
+/* ESTABLECE UN ICONO DE FONT AWESOME PARA TODOS LOS ELEMENTOS DEL MENÚ */
+#nav_lpz a{
+	position: relative;
+}
+
+#nav_lpz a:before{
+	font-family: FontAwesome;
+	content:"\f007";
+	position: absolute;
+	left: 2px;
+}
+```
+
+Aquí un ejemplo de un Menú completo:
+
+```
+<div id="nav_lpz" data-width="300px" data-cnav="white" data-chover="#aeea7c" 
+data-sep="15px" data-fcolor="black">
+		<div class="logo_lpz" data-clogo="#aeea7c" data-img='images/flor.jpg'>
+			<div id="close_lpz" data-img='images/equis.png' data-width='50px' 
+			data-height='50px'></div>
+		</div>
+		<div class="sup_lpz">
+			<a href="#">Enlace 1</a>
+			<a href="#">Enlace 2</a>
+			<a href="#">Enlace 3</a>
+		</div>
+		<div class="inf_lpz">
+			<a href="#">Enlace 4</a>
+			<a href="#">Enlace 5</a>
+		</div>
+	</div>
+
+	<div id="open_lpz" data-img='images/open.png' data-width='50px' 
+	data-height='50px'></div>
+```
+
+### Botón Top
+
+Podemos crear un boton para navegar a la parte superior de nuestra web con un elemento **div** dandole el siguiente *id*: *top_but_lpz*, podemos personalizar el boton con los siguiente atributos:
+
+- data-color -> Establece el color del boton (Por defecto *orange*).
+- data-width -> Establece la anchura de nuestro botón, al ser circular tambien establece el alto (Por defecto *50px*).
+- data-vel -> Establece la velocidad de la animación de la acción (Por defecto 150).
+- data-img -> Establece la imagen de fondo de nuestro botón.
+
+Podemos colocar nuestro botón en la pantalla usando los siguiente atributos (Teniendo en cuenta que la posicion 0,0 es la esquina inferior derecha):
+- data-posx -> Posicion en el eje X de la pantalla (Por defecto: 20px).
+- data-posy -> Posicion en el eje Y de la pantalla (Por defecto: 20px).
+
+Aquí un ejemplo de un Menú completo:
+
+```
+<div id="top_but_lpz" data-color="blue" data-width='50px' data-vel='150' 
+data-img='images/paloma.png' data-posx='100px' data-posy='20px'></div>
+```
+
+### Botón múltiple
+
+Podemos crear un botón múltiple (al pulsarlo aparecen mas botones en nuestra pantalla) usando un elemento **div** y dandole el *id*: *multi_but_lpz*, una vez creado el div debemos crear elementos hijos del tipo *a*.
+
+Podemos personalizar nuestro botón con los siguiente atributos:
+
+- data-width -> Establece la anchura de nuestro botón, al ser circular tambien establece el alto (Por defecto *50px*).
+- data-color -> Establece el color del boton (Por defecto *orange*).
+- data-img -> Establece la imagen de fondo de nuestro botón.
+
+Podemos colocar nuestro botón en la pantalla usando los siguiente atributos (Teniendo en cuenta que la posicion 0,0 es la esquina inferior derecha):
+
+- data-posx -> Posicion en el eje X de la pantalla (Por defecto: 20px).
+- data-posy -> Posicion en el eje Y de la pantalla (Por defecto: 20px).
+
+Podemos establecer imagenes de fondo para nuestros enlaces usando el atributo:
+
+- data-img -> Establece la imagen de fondo de nuestro botón.
+
+Aquí un ejemplo de un Menú completo:
+
+```
+<div id="multi_but_lpz" data-color="green" data-img='images/paloma.png' 
+data-posx='20px' data-posy='20px'>
+	<a href="#" data-img='images/paloma.png'></a>
+	<a href="#" data-img='images/open.png'></a>
+	<a href="#" data-img='images/equis.png'></a>
+</div>
+```
