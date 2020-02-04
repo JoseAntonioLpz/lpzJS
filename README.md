@@ -12,6 +12,7 @@ Hasta el momento esta librería da soporte para:
 - Gráficas
 - Barras de progreso
 - Temporizadores
+- Utilidades de navegación
 
 ## Gráficas
 
