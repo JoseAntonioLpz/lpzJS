@@ -1,6 +1,9 @@
 # Documentación
 
 [Ejemplo de uso](https://joseantoniolpz.github.io/lpzJS/examples)
+
+El desarrollo de lpzJS es sin animo de lucro, no obstante considere donar si el proyecto le ha ayudado en el desarrollo de su aplicación, nos ayudaría muchisimo.
+[Donar al proyecto](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QVT9FUB3ABCJS&source=url)
 	
 Esta librería aún se encuentra en una fase temprana de su desarrollo, si encuentras algún error por favor comunicanoslo para 
 solucionarlo lo mas tempranamente posible.
