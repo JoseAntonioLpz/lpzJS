@@ -33,7 +33,6 @@ npm install @joseantoniolpz/lpzjs@1.0.4
 		"@joseantoniolpz/lpzjs": "1.0.4"
 	}
 }
-
 ```
 
 Se le descargará en una carpeta llamada *node-modules*. 
