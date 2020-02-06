@@ -17,6 +17,29 @@ Hasta el momento esta librería da soporte para:
 - [Temporizadores](#temporizador)
 - [Utilidades de navegación](#navegación)
 
+##Instalación
+
+Puedes descargar esta libreria descargando este repositorio directamente desde github e importando los archivos js que vayas a utilizar en tu proyecto, tambien puedes descargarte el repositorio usando *npm* mediante la siguiente linea de comandos:
+
+- Desde linea de comandos:
+```BASH
+npm install @joseantoniolpz/lpzjs@1.0.4
+```
+
+- Desde un archivo **package.json**
+```JSON
+{
+	"dependencies": {
+		"@joseantoniolpz/lpzjs": "1.0.4"
+	}
+}
+
+```
+
+Se le descargará en una carpeta llamada *node-modules*. 
+
+_opcionalmente_: Extraiga de ella los js necesarios e importelos en su proyecto luego elimine el resto de la carpeta para ahorrar espacio en su proyecto.
+
 ## Gráficas
 
 Puedes dibujar diferentes tipos de gráficas usando esta librería:
@@ -31,6 +54,7 @@ Para crear una gráfica de barras basta con añadir un elemento **canvas** a nue
 
 Para pintar la gráfica debemos pasarle un JSON, para ello usaremos data-json, la estructura del JSON es la siguiente:
 
+```JSON
 	[
 		{
 			"name": "{string}",
@@ -46,6 +70,7 @@ Para pintar la gráfica debemos pasarle un JSON, para ello usaremos data-json, l
 			"value": {int}
 		}
 	]
+```	
 
 Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto, estos campos son opcionales:
 
@@ -72,6 +97,7 @@ Para crear una gráfica circular basta con añadir un elemento **canvas** a nues
 
 Para pintar la gráfica debemos pasarle un JSON, para ello usaremos data-json, la estructura del JSON es la siguiente:
 
+```JSON
 	[
 		{
 			"name": "{string}",
@@ -90,6 +116,7 @@ Para pintar la gráfica debemos pasarle un JSON, para ello usaremos data-json, l
 			"color": "{string}"
 		}
 	]
+```	
 
 Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto, estos campos son opcionales:
 
@@ -97,7 +124,7 @@ Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto,
 
 Aquí un ejemplo de un elemento canvas completo:	
 
-```
+```html
 <canvas class='circle_lpz' width='300' height='300' data-json='[{"name":"Enero","value":400, 
 "color": "red"},{"name":"Febrero","value":300, "color": "blue"},{"name":"Marzo","value":200, 
 "color": "green"},{"name":"Abril","value":200, "color": "yellow"},{"name":"Mayo","value":333, 
@@ -109,6 +136,7 @@ Para crear una gráfica circular basta con añadir un elemento **canvas** a nues
 
 Para pintar la gráfica debemos pasarle un JSON, para ello usaremos data-json, la estructura del JSON es la siguiente:
 
+```JSON
 	[
 		{
 			"name": "{string}",
@@ -124,6 +152,7 @@ Para pintar la gráfica debemos pasarle un JSON, para ello usaremos data-json, l
 			"value": {int}"
 		}
 	]
+```	
 
 Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto, estos campos son opcionales:
 
@@ -133,7 +162,7 @@ Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto,
 
 Aquí un ejemplo de un elemento canvas completo:	
 
-```
+```html
 <canvas class='graphic_lpz' width='500' height='200' data-json='[{"name":"Enero","value":100},
 {"name":"Febrero","value":300},{"name":"Marzo","value":200},{"name":"Abril","value":200},
 {"name":"Mayo","value":400},{"name":"Junio","value":200},{"name":"Julio","value":500},
@@ -167,7 +196,7 @@ Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto,
 
 Aquí un ejemplo de un elemento canvas completo:
 
-```
+```html
 <canvas class='progress_bar_lpz' width='200' height='20' data-text='Fuerza' data-percent='25' 
 data-color='green' data-ctext='white' data-cpercent='black' data-font='10px Arial'></canvas>
 ```
@@ -194,7 +223,7 @@ Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto,
 
 Aquí un ejemplo de un elemento canvas completo:
 
-```
+```html
 <canvas class='progress_circle_lpz' width='100' height='100' data-text='Fuerza' 
 data-percent='60' data-color='red' data-font='20px Arial' data-bulk='5' data-mostrate='1'></canvas>
 ```
@@ -221,7 +250,7 @@ Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto,
 
 Aquí un ejemplo de un elemento canvas completo:
 
-```
+```html
 <canvas class='progress_half_circle_lpz' width='100' height='100' data-text='Fuerza' 
 data-percent='60' data-color='red' data-font='12px Arial' data-bulk='5' data-mostrate='2'></canvas>
 ```
@@ -244,7 +273,7 @@ Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto,
 Aquí un ejemplo de un elemento canvas completo:
 
 
-```
+```html
 <canvas class='timer_lpz' width='200' height='50' data-time='2020-11-24' 
 data-font='20px Bangers' data-format='0'></canvas>
 ```
@@ -292,7 +321,7 @@ Podemos colocar estos botones donde queramos en nuestro DOM.
 
 Es muy normal que los elementos de los Menús desplegables tengan iconos, podemos agregarles iconos usando selectores CSS, aqui os dejamos un ejemplo de como hacerlo:
 
-```
+```css
 /* ESTABLECE UN ICONO DE FONT AWESOME PARA TODOS LOS ELEMENTOS DEL MENÚ */
 #nav_lpz a{
 	position: relative;
@@ -308,7 +337,7 @@ Es muy normal que los elementos de los Menús desplegables tengan iconos, podemo
 
 Aquí un ejemplo de un Menú completo:
 
-```
+```html
 <div id="nav_lpz" data-width="300px" data-cnav="white" data-chover="#aeea7c" 
 data-sep="15px" data-fcolor="black">
 		<div class="logo_lpz" data-clogo="#aeea7c" data-img='images/flor.jpg'>
@@ -345,7 +374,7 @@ Podemos colocar nuestro botón en la pantalla usando los siguiente atributos (Te
 
 Aquí un ejemplo de un Menú completo:
 
-```
+```html
 <div id="top_but_lpz" data-color="blue" data-width='50px' data-vel='150' 
 data-img='images/paloma.png' data-posx='100px' data-posy='20px'></div>
 ```
@@ -371,7 +400,7 @@ Podemos establecer imagenes de fondo para nuestros enlaces usando el atributo:
 
 Aquí un ejemplo de un Menú completo:
 
-```
+```html
 <div id="multi_but_lpz" data-color="green" data-img='images/paloma.png' 
 data-posx='20px' data-posy='20px'>
 	<a href="#" data-img='images/paloma.png'></a>
