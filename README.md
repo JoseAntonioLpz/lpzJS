@@ -27,7 +27,7 @@ npm install @joseantoniolpz/lpzjs@1.0.4
 ```
 
 - Desde un archivo **package.json**
-```JSON
+```
 {
 	"dependencies": {
 		"@joseantoniolpz/lpzjs": "1.0.4"
