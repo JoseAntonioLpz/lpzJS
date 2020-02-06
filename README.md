@@ -17,7 +17,7 @@ Hasta el momento esta librería da soporte para:
 - [Temporizadores](#temporizador)
 - [Utilidades de navegación](#navegación)
 
-##Instalación
+## Instalación
 
 Puedes descargar esta libreria descargando este repositorio directamente desde github e importando los archivos js que vayas a utilizar en tu proyecto, tambien puedes descargarte el repositorio usando *npm* mediante la siguiente linea de comandos:
 
@@ -54,7 +54,7 @@ Para crear una gráfica de barras basta con añadir un elemento **canvas** a nue
 
 Para pintar la gráfica debemos pasarle un JSON, para ello usaremos data-json, la estructura del JSON es la siguiente:
 
-```JSON
+```
 	[
 		{
 			"name": "{string}",
@@ -82,7 +82,7 @@ Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto,
 - data-title -> establece un título para la gráfica (Por defecto *vacío*).
 
 Aquí un ejemplo de un elemento canvas completo:
-```
+```html
 <canvas class='graphic_bar_lpz' width='500' height='300' data-json='[{"name":"Enero","value":100},
 {"name":"Febrero","value":300},{"name":"Marzo","value":200},{"name":"Abril","value":200},
 {"name":"Mayo","value":400},{"name":"Junio","value":200},{"name":"Julio","value":200},
@@ -97,7 +97,7 @@ Para crear una gráfica circular basta con añadir un elemento **canvas** a nues
 
 Para pintar la gráfica debemos pasarle un JSON, para ello usaremos data-json, la estructura del JSON es la siguiente:
 
-```JSON
+```
 	[
 		{
 			"name": "{string}",
@@ -136,7 +136,7 @@ Para crear una gráfica circular basta con añadir un elemento **canvas** a nues
 
 Para pintar la gráfica debemos pasarle un JSON, para ello usaremos data-json, la estructura del JSON es la siguiente:
 
-```JSON
+```
 	[
 		{
 			"name": "{string}",
