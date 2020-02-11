@@ -1,5 +1,7 @@
 # Documentation
 
+[![License](img/license-mit.svg)](https://www.mit.edu/~amini/LICENSE.md)
+
 [Example of use](https://joseantoniolpz.github.io/lpzJS/examples)
 
 The development of lpzJS is non-profit, however you can evaluate to donate if the project help you. This gesture help us a lot.
