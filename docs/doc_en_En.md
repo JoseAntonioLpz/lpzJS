@@ -19,7 +19,7 @@ Until now, this library support:
 - [Graph](#graph)
 - [Progress Bar](#progress-bar)
 - [Timer](#timer)
-- [Navigation utilities](#navigation)
+- [Navigation utilities](#navigation-utilities)
 
 ## Instalation
 
