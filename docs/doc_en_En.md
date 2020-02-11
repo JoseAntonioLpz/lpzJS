@@ -10,7 +10,7 @@ The development of lpzJS is non-profit, however you can evaluate to donate if th
 
 This library is in a early stage of his development, if you find a bug, please tell us for fixed it.
 
-If you do a new funcionality or improve some of the current maybe you are interesented in add to the repository, you are free to do or not. If you do, you help this project and someone that need it.
+If you do a new funcionality or improve some of the current, maybe, you are interesented in add to the repository, you are free to do or not. If you do, you help this project and someone that need it.
 
 Until now, this library support:
 
