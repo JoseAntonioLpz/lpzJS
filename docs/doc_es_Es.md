@@ -1,3 +1,5 @@
+[![License](img/license-mit.svg)](https://www.mit.edu/~amini/LICENSE.md)
+
 # Documentación
 
 [Ejemplo de uso](https://joseantoniolpz.github.io/lpzJS/examples)
