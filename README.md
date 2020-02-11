@@ -16,9 +16,9 @@ If you do a new funcionality or improve some of the current maybe you are intere
 
 Until now, this library support:
 
-- [Graph](docs/doc_es_Es.md#graph)
-- [Progress Bar](docs/doc_es_Es.md#barras-de-progreso)
-- [Timer](docs/doc_es_Es.md#temporizador)
+- [Graph](docs/doc_en_En.md#graph)
+- [Progress Bar](docs/doc_en_En.md#progress-bar)
+- [Timer](docs/doc_en_En.md#timer)
 - [Navigation utilities](docs/doc_es_Es.md#navegación)
 
 # Documentation

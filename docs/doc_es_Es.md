@@ -177,7 +177,7 @@ Aquí un ejemplo de un elemento canvas completo:
 
 ## Barras de progreso
 
-Puedes dibujar diferentes tipos de gráficas usando esta librería:
+Puedes dibujar diferentes tipos de barras de progreso usando esta librería:
 
 - [Barras de progreso lineales](#barras-de-progreso-lineales)
 - [Barras de progreso circulares](#barras-de-progreso-circulares)
@@ -218,7 +218,7 @@ Para pintar la barra debemos pasarle un porcentaje y un texto, para ello usaremo
 Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto, estos campos son opcionales:
 
 - data-bulk -> establece el grosor de la circunferencia (Por defecto *5*).
-- data-color -> establece el color de la barra (Por defecto *blue*).
+- data-color -> establece el color de la circunferencia (Por defecto *blue*).
 - data-mostrate -> establece la manera de visualizar los resultados, pueden tomar los siguientes valores (Por defecto *0*).
 	- 0 -> Muestra el texto y el porcentaje
 	- 1 -> Muestra el porcentaje
@@ -262,15 +262,15 @@ data-percent='60' data-color='red' data-font='12px Arial' data-bulk='5' data-mos
 
 ## Temporizador
 
-Para crear una barra de progreso semi-circular basta con añadir un elemento **canvas** a nuestros HTML y dándole la clase **timer_lpz**, para una correcta visualización recomendamos darle un widht y un height que se adapte a nuestras necesidades.
+Para crear un temporizador basta con añadir un elemento **canvas** a nuestros HTML y dándole la clase **timer_lpz**, para una correcta visualización recomendamos darle un widht y un height que se adapte a nuestras necesidades.
 
-Para pintar la barra debemos pasarle un porcentaje y un texto, para ello usaremos:
+Para pintar el temporizador debemos pasarle una fecha, para ello usaremos:
 
 - data-time -> Debemos pasarle una fecha en formato yyyy-MM-dd (Ejemplo 2020-11-24).
 
 Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto, estos campos son opcionales:
 
-- data-format -> establece el formate de salido de los datos (Por defecto *0*).
+- data-format -> establece el formato de salida de los datos (Por defecto *0*).
 	- 0 -> Muestra los datos añadiendo los dias. (Ejemplo 345 days 15:26:08).
 	- 1 -> Muestra los datos sin los dias. (Ejemplo 2158:26:08).
 - data-font -> establece la fuente del texto (Por defecto *10px Arial*).
