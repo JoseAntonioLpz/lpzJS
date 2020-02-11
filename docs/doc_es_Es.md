@@ -1,7 +1,7 @@
 # Documentación
 
 [![License](img/license-mit.svg)](https://www.mit.edu/~amini/LICENSE.md)
-[![npm version](https://badge.fury.io/js/%40joseantoniolpz%2Flpzjs.svg)](https://www.npmjs.com/package/@joseantoniolpz/lpzjs)
+[![npm version](img/npm.svg)](https://www.npmjs.com/package/@joseantoniolpz/lpzjs)
 
 [Ejemplo de uso](https://joseantoniolpz.github.io/lpzJS/examples)
 

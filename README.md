@@ -1,6 +1,7 @@
 # Read me
 
 [![License](docs/img/license-mit.svg)](https://www.mit.edu/~amini/LICENSE.md)
+[![npm version](docs/img/npm.svg)](https://www.npmjs.com/package/@joseantoniolpz/lpzjs)
 
 [Example of use](https://joseantoniolpz.github.io/lpzJS/examples)
 
