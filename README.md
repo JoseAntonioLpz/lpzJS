@@ -13,10 +13,10 @@ If you do a new funcionality or improve some of the current maybe you are intere
 
 Until now, this library support:
 
-- [Graph](#graph)
-- [Progress Bar](#barras-de-progreso)
-- [Timer](#temporizador)
-- [Navigation utilities](#navegación)
+- [Graph](docs/doc_en_En.md#graph)
+- [Progress Bar](docs/doc_es_Es.md#barras-de-progreso)
+- [Timer](docs/doc_es_Es.md#temporizador)
+- [Navigation utilities](docs/doc_es_Es.md#navegación)
 
 # Documentation
 
