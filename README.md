@@ -19,20 +19,21 @@ Hasta el momento esta librería da soporte para:
 
 ## Instalación
 
-Puedes descargar esta libreria descargando este repositorio directamente desde github e importando los archivos js que vayas a utilizar en tu proyecto, tambien puedes descargarte el repositorio usando *npm* mediante la siguiente linea de comandos:
+Puedes instalar esta libreria descargando este repositorio directamente e importando los archivos js que vayas a utilizar en tu proyecto, tambien puedes descargarte el repositorio usando *npm* mediante:
 
-- Desde linea de comandos:
+- Línea de comandos:
 ```BASH
 npm install @joseantoniolpz/lpzjs@1.0.4
 ```
 
-- Desde un archivo **package.json**
-```
+- Un archivo **package.json**
+```JSON
 {
 	"dependencies": {
 		"@joseantoniolpz/lpzjs": "1.0.4"
 	}
 }
+
 ```
 
 Se le descargará en una carpeta llamada *node-modules*. 
