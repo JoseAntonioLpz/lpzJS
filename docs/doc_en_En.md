@@ -296,8 +296,53 @@ Coming soon
 
 ### Button to Top
 
-Coming soon
+For create a button to top, you will need to add a element **div** with the **id**: *top_but_lpz* in your HTML document.
+
+We can pass aditional atributes for customize our button, this is the optional atributes:Yo au
+
+- data-color -> Set de button's color (By default *orange*).
+- data-width -> Set the width, because it´s a circle, set also the height (By default *50px*).
+- data-vel -> Set the animation's velocity of the action (By default *150*).
+- data-img -> Set the button's background image.
+
+We can position our button in the screen using the next atributes (keeping in mind that the position 0,0 is the lower right corner):
+
+- data-posx -> X position in the screen (By default: *20px*).
+- data-posy -> Y position in the screen (By default: *20px*).
+
+Here an example of a complete canvas element:
+
+```html
+<div id="top_but_lpz" data-color="blue" data-width='50px' data-vel='150' 
+data-img='images/paloma.png' data-posx='100px' data-posy='20px'></div>
+```
 
 ### Multiple button
 
-Coming soon
+For create a multiple button, you will need to add a element **div** with the id *multi_but_lpz* in your HTML document, later, we must create childrens elements (_inside of the div_) of type **a**.
+
+We can pass aditional atributes for customize our button, this is the optional atributes:
+
+- data-width -> Set the width, because it´s a circle, set also the height (By default *50px*).
+- data-color -> Set de button's color (By default *orange*).
+- data-img -> Set the button's background image.
+
+We can position our button in the screen using the next atributes(Keeping in mind that the position 0,0 is the lower right corner):
+
+- data-posx -> X position in the screen (By default: *20px*).
+- data-posy -> Y position in the screen (By default: *20px*).
+
+We can set backgrounds images for our links using the atribute:
+
+- data-img -> Set the button's background image.
+
+Here an example of a complete canvas element:
+
+```html
+<div id="multi_but_lpz" data-color="green" data-img='images/paloma.png' 
+data-posx='20px' data-posy='20px'>
+	<a href="#" data-img='images/paloma.png'></a>
+	<a href="#" data-img='images/open.png'></a>
+	<a href="#" data-img='images/equis.png'></a>
+</div>
+```

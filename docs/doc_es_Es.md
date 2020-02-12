@@ -370,12 +370,12 @@ Podemos crear un boton para navegar a la parte superior de nuestra web con un el
 
 - data-color -> Establece el color del boton (Por defecto *orange*).
 - data-width -> Establece la anchura de nuestro botón, al ser circular tambien establece el alto (Por defecto *50px*).
-- data-vel -> Establece la velocidad de la animación de la acción (Por defecto 150).
+- data-vel -> Establece la velocidad de la animación de la acción (Por defecto *150*).
 - data-img -> Establece la imagen de fondo de nuestro botón.
 
 Podemos colocar nuestro botón en la pantalla usando los siguiente atributos (Teniendo en cuenta que la posicion 0,0 es la esquina inferior derecha):
-- data-posx -> Posicion en el eje X de la pantalla (Por defecto: 20px).
-- data-posy -> Posicion en el eje Y de la pantalla (Por defecto: 20px).
+- data-posx -> Posicion en el eje X de la pantalla (Por defecto: *20px*).
+- data-posy -> Posicion en el eje Y de la pantalla (Por defecto: *20px*).
 
 Aquí un ejemplo de un Menú completo:
 
@@ -396,8 +396,8 @@ Podemos personalizar nuestro botón con los siguiente atributos:
 
 Podemos colocar nuestro botón en la pantalla usando los siguiente atributos (Teniendo en cuenta que la posicion 0,0 es la esquina inferior derecha):
 
-- data-posx -> Posicion en el eje X de la pantalla (Por defecto: 20px).
-- data-posy -> Posicion en el eje Y de la pantalla (Por defecto: 20px).
+- data-posx -> Posicion en el eje X de la pantalla (Por defecto: *20px*).
+- data-posy -> Posicion en el eje Y de la pantalla (Por defecto: *20px*).
 
 Podemos establecer imagenes de fondo para nuestros enlaces usando el atributo:
 
