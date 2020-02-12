@@ -292,13 +292,82 @@ lpzJS offers different utilities for navigate into our site:
 
 ### Drop-down Menu
 
-Coming soon
+For create a drop-down menu, you will need to add a element **div** with the **id**: *nav_lpz* in your HTML document.
+
+We can pass aditional atributes for customize our drop-down menu, this is the optional atributes:
+
+- data-width -> Set the menu's width (By default *75%* of the screen).
+- data-cnav -> Set the menu's background color (By default *white*).
+- data-chover -> Set the element´s color when we hover over it (By default *white*).
+- data-sep -> Set the menu element's left separation (By default *10px*).
+- data-fcolor -> Set the element's font color (By default *blue*).
+
+Inside of this div, we can add another 3 different divs with the next *classes*:
+
+- logo_lpz -> Designed for the menu's top part, we can customize our logo with the next atributes:
+	- data-clogo -> Set the logo's background color.
+	- data-img -> Set the logo's background image.
+- sup_lpz -> Designed for the menu's middle part, here we add our links.
+- inf_lpz -> Designed for the menu's bottom part, here we add our links.
+
+For open and close the menu is use two elements, of any type (we recommended *div*), with the next *id*: 
+
+- open_lpz -> Open the drop-down menu.
+	- data-img -> Set the button's background image.
+	- data-width -> Set thw button's width (By default *50px*).
+	- data-height ->Set thw button's height (By default *50px*).
+- close_lpz -> Close the drop-down menu.
+	- data-img ->Set the button's background image.
+	- data-width -> Set thw button's width (By default *50px*).
+	- data-height ->Set thw button's height (By default *50px*).
+
+We can position this buttons where we want in our DOM.
+
+It's normal that the elements of drop-drown menus have icons, we can add icons using CSS selectors, here we put a example to do it:
+
+```css
+/* SET A ICON FROM FONT AWESOME FOR EVERY ELEMENTS OF THE MENU*/
+#nav_lpz a{
+	position: relative;
+}
+
+#nav_lpz a:before{
+	font-family: FontAwesome;
+	content:"\f007";
+	position: absolute;
+	left: 2px;
+}
+```
+
+Here an example of a complete canvas element:
+
+```html
+<div id="nav_lpz" data-width="300px" data-cnav="white" data-chover="#aeea7c" 
+data-sep="15px" data-fcolor="black">
+		<div class="logo_lpz" data-clogo="#aeea7c" data-img='images/flor.jpg'>
+			<div id="close_lpz" data-img='images/equis.png' data-width='50px' 
+			data-height='50px'></div>
+		</div>
+		<div class="sup_lpz">
+			<a href="#">Link 1</a>
+			<a href="#">Link 2</a>
+			<a href="#">Link 3</a>
+		</div>
+		<div class="inf_lpz">
+			<a href="#">Link 4</a>
+			<a href="#">Link 5</a>
+		</div>
+	</div>
+
+	<div id="open_lpz" data-img='images/open.png' data-width='50px' 
+	data-height='50px'></div>
+```
 
 ### Button to Top
 
 For create a button to top, you will need to add a element **div** with the **id**: *top_but_lpz* in your HTML document.
 
-We can pass aditional atributes for customize our button, this is the optional atributes:Yo au
+We can pass aditional atributes for customize our button, this is the optional atributes:
 
 - data-color -> Set de button's color (By default *orange*).
 - data-width -> Set the width, because it´s a circle, set also the height (By default *50px*).
