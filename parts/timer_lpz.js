@@ -1,3 +1,11 @@
+/*
+*
+* AUTHOR: José Antonio López López
+* GITHUB: https://github.com/JoseAntonioLpz
+* REPOSITORY: https://github.com/JoseAntonioLpz/lpzJS
+* LICENSE: MIT
+* 
+*/
 (function(){
 	function index(){
 		var all = document.getElementsByTagName('canvas');

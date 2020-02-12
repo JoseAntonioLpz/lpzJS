@@ -1,3 +1,11 @@
+/*
+*
+* AUTHOR: José Antonio López López
+* GITHUB: https://github.com/JoseAntonioLpz
+* REPOSITORY: https://github.com/JoseAntonioLpz/lpzJS
+* LICENSE: MIT
+* 
+*/
 (function(){
 	var nav = document.getElementById('nav_lpz');
 	if(nav){
