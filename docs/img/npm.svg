@@ -19,10 +19,10 @@
             npm package
         </text>
         <text fill="#010101" x="92" fill-opacity=".3" y="15" class="tMove">
-            1.0.4
+            1.0.5
         </text>
         <text x="92" id="vText" y="14" class="tMove">
-            1.0.4
+            1.0.5
         </text>
     </g>
 </svg>
