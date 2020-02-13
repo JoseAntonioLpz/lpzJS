@@ -58,6 +58,8 @@ function progressCircle(canvas, multiplier, clock){
 	cvx.font = font;
 	cvx.textAlign = 'center';
 	cvx.textBaseline = 'middle';
+	cvx.fillStyle = (canvas.dataset.cfont != undefined) ? canvas.dataset.cfont : 'black';
+	console.log(canvas.dataset.cfont);
 	cvx.fillText(text, cWidth / 2, cHeight / 2);
 }
 

@@ -278,6 +278,7 @@ function progressCircle(canvas, multiplier, clock){
 	cvx.beginPath();
 	cvx.font = font;
 	cvx.textAlign = 'center';
+	cvx.fillStyle = (canvas.dataset.cfont != undefined) ? canvas.dataset.cfont : 'black';
 	cvx.textBaseline = 'middle';
 	cvx.fillText(text, cWidth / 2, cHeight / 2);
 }

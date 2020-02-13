@@ -1,11 +1,3 @@
-/*
-*
-* AUTHOR: José Antonio López López
-* GITHUB: https://github.com/JoseAntonioLpz
-* REPOSITORY: https://github.com/JoseAntonioLpz/lpzJS
-* LICENSE: MIT
-* 
-*/
 (function(){
 
 	var all = document.getElementsByTagName('canvas');
@@ -66,6 +58,7 @@ function progressCircle(canvas, multiplier, clock){
 	cvx.font = font;
 	cvx.textAlign = 'center';
 	cvx.textBaseline = 'middle';
+	cvx.fillStyle = (canvas.dataset.cfont != undefined) ? canvas.dataset.cfont : 'black';
 	cvx.fillText(text, cWidth / 2, cHeight / 2);
 }
 
