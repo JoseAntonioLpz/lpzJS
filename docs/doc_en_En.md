@@ -218,6 +218,7 @@ We can pass aditional atributes for customize our graph, this is the optional at
 
 - data-bulk -> Set the circle´s thickness (By default *5*).
 - data-color -> Set the circle´s color (By default *blue*).
+- data-cfont -> Set the font's color (By default *black*).
 - data-mostrate -> establece la manera de visualizar los resultados, pueden tomar los siguientes valores (By default *0*).
 	- 0 -> Show the text and the percentage
 	- 1 -> Show the percentage
@@ -245,6 +246,7 @@ We can pass aditional atributes for customize our graph, this is the optional at
 
 - data-bulk -> Set the circle´s thickness (By default *5*).
 - data-color -> Set the circle´s color (By default *blue*).
+- data-cfont -> Set the font's color (By default *black*).
 - data-mostrate -> set the way to visualize the results (By default *0*).
 	- 0 -> Show the text and the percentage
 	- 1 -> Show the percentage

@@ -217,14 +217,15 @@ Para pintar la barra debemos pasarle un porcentaje y un texto, para ello usaremo
 
 Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto, estos campos son opcionales:
 
-- data-bulk -> establece el grosor de la circunferencia (Por defecto *5*).
-- data-color -> establece el color de la circunferencia (Por defecto *blue*).
-- data-mostrate -> establece la manera de visualizar los resultados, pueden tomar los siguientes valores (Por defecto *0*).
+- data-bulk -> Establece el grosor de la circunferencia (Por defecto *5*).
+- data-color -> Establece el color de la circunferencia (Por defecto *blue*).
+- data-cfont -> Establece el color de la fuente (Por defecto *black*).
+- data-mostrate -> Establece la manera de visualizar los resultados, pueden tomar los siguientes valores (Por defecto *0*).
 	- 0 -> Muestra el texto y el porcentaje
 	- 1 -> Muestra el porcentaje
 	- 2 -> Muestra el texto
 	- 3 -> No muestra nada
-- data-font -> establece la fuente del texto (Por defecto *10px Arial*).
+- data-font -> Establece la fuente del texto (Por defecto *10px Arial*).
 
 Aquí un ejemplo de un elemento canvas completo:
 
@@ -246,6 +247,7 @@ Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto,
 
 - data-bulk -> establece el grosor de la circunferencia (Por defecto *5*).
 - data-color -> establece el color de la barra (Por defecto *blue*).
+- data-cfont -> Establece el color de la fuente (Por defecto *black*).
 - data-mostrate -> establece la manera de visualizar los resultados, pueden tomar los siguientes valores (Por defecto *0*).
 	- 0 -> Muestra el texto y el porcentaje
 	- 1 -> Muestra el porcentaje
