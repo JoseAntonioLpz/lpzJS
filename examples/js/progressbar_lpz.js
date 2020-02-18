@@ -18,6 +18,19 @@
 
 }());
 
+function drawProgressCircle(canvas){
+	let className = canvas.className;
+
+	switch(className){
+		case 'progress_circle_lpz':
+			progressCircle(canvas, 2, false);
+			break;
+		case 'progress_half_circle_lpz':
+			progressCircle(canvas, -1, true);
+			break;			
+	}
+}
+
 function progressCircle(canvas, multiplier, clock){
 
 	let cvx = canvas.getContext('2d');
@@ -29,6 +42,8 @@ function progressCircle(canvas, multiplier, clock){
 	let font = (canvas.dataset.font != undefined) ? canvas.dataset.font : '10px Arial';
 	let bulk = (canvas.dataset.bulk != undefined) ? canvas.dataset.bulk : '5';
 	let mostrate = (canvas.dataset.mostrate != undefined) ? canvas.dataset.mostrate : '0';
+
+	cvx.clearRect(0, 0, cWidth, cHeight);
 
 	cvx.beginPath();
 	cvx.lineWidth = bulk;
@@ -74,6 +89,8 @@ function progressBar(canvas){
 	let ctext = (canvas.dataset.ctext != undefined) ? canvas.dataset.ctext : 'black';
 	let cpercent = (canvas.dataset.cpercent != undefined) ? canvas.dataset.cpercent : 'black';
 	let font = (canvas.dataset.font != undefined) ? canvas.dataset.font : '10px Arial';
+
+	cvx.clearRect(0, 0, cWidth, cHeight);
 
 	cvx.moveTo(0,0);
 

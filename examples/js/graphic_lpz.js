@@ -161,7 +161,7 @@ function graphicBar(canvas){
 
 	cvx.fillStyle = "black";
 	cvx.font = "10px Arial";
-	cvx.fillText(title, 10 , 10);
+	cvx.fillText(title, 25 , 12);
 
 	cvx.beginPath();
 	cvx.moveTo(0,0);
@@ -186,19 +186,21 @@ function graphicBar(canvas){
     	cont_val++;
   	});
 
-  	let calc_sep = (cWidth / cont_val) - canvas.dataset.max;
-
-  	let sep = (canvas.dataset.sep != undefined) ? parseInt(canvas.dataset.sep) : calc_sep;
 	let maxVal = Math.max(...values);
-
-	let initialH = 0;
+	let initialH = 1;
 	let initialRest = maxVal;
 	let rest = maxVal / 4;
+
+	cvx.beginPath();
 	for (var i = 0; i < 4; i++) {
+
 		cvx.moveTo(0,initialH);
+
 		cvx.lineTo(cWidth, initialH);
+		cvx.lineWidth = 1;
 		cvx.strokeStyle = "#e1e1e1";
 		cvx.stroke();
+
 		cvx.fillStyle = "#e1e1e1";
 		cvx.font = "10px Arial";
 		cvx.textAlign = 'center';
@@ -206,13 +208,18 @@ function graphicBar(canvas){
 		cvx.fillText(initialRest, 10, initialH + 12);
 
 		initialRest -= rest;
-		initialH += cHeight / 4;
+		initialH += ((cHeight - 15) / 4);
 	}
+	cvx.closePath();
+
+	let calc_min_max =  (cWidth / cont_val) - 10;
+  	let min = (canvas.dataset.min != undefined) ? canvas.dataset.min : calc_min_max;
+  	let max = (canvas.dataset.max != undefined) ? canvas.dataset.max : calc_min_max;
+
+	let calc_sep = (cWidth / cont_val) - max;
+  	let sep = (canvas.dataset.sep != undefined) ? parseInt(canvas.dataset.sep) : calc_sep;
 
 	let cut = ((cWidth - (sep * (data.length + 1))) / data.length);
-
-	let min = (canvas.dataset.min != undefined) ? canvas.dataset.min : 20;
-	let max = (canvas.dataset.max != undefined) ? canvas.dataset.max : 30;
 
 	if(min > cut){
 		cut = parseInt(min);
@@ -225,6 +232,7 @@ function graphicBar(canvas){
 	let color = (canvas.dataset.color != undefined) ? canvas.dataset.color : 'blue';
 	let valcol = (canvas.dataset.valcol != undefined) ? canvas.dataset.valcol : 'white';
 
+	cvx.beginPath();
 	data.forEach(function(object){
 		let height = (object.value * (cHeight - 15)) / maxVal;
 
@@ -246,8 +254,10 @@ function graphicBar(canvas){
 
 		possAct = possAct + cut + sep;
 	});
+	cvx.closePath();
 }
 
 // NO HACE SUBSTRING
 // TEXTO CENTRADO
 // NUEVA MANERA DE VISUALIZACION DE LA BARRA
+// SINO SE ESPECIFICA EL MIN Y MAX AHORA ES RESPONSIVE
