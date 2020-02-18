@@ -449,7 +449,11 @@ $.ajax({
 	let canvas = document.getElementById('pp'); // Aunque usemos Jquery, seleccionar el elemento con JS, nos evitará problemas
 	circle(canvas); // llamar a la función de pintado
 });
+```
 
+Para actualizar un elemento, debemos de hacer una petición AJAX y obtener un JSON con la estructura adecuada (Mirar documentación del elemento), una vez obtenido debemos actualizar el atributo *data-json* desde JS/JQuery (Se recomienda haberle dado a nuestro canvas un ID para seleccionarlo), teniendo en cuenta que hay que transformar este JSON a cadena usando la función *JSON.stringify*, luego sólo quedaría llamar a la función correspondiente. A continuación ponemos un ejemplo de como sería el codigo completo:
+
+```JavaScript
 // Actualizar un objeto Canvas a traves de AJAX
 
 $.ajax({
