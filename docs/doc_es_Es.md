@@ -82,7 +82,7 @@ Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto,
 
 - data-min -> establece la anchura mínima de las barras (Por defecto *20*).
 - data-max -> establece la anchura máxima de la barras (Por defecto *30*).
-- data-sep -> establece la separación entre barras (Por defecto *10*).
+- data-sep -> establece la separación entre barras (Por defecto se calcula automaticamente).
 - data-color -> establece el color de las barras (Por defecto *blue*).
 - data-valcol -> establece el color de los valores (Por defecto *white*).
 - data-title -> establece un título para la gráfica (Por defecto *vacío*).

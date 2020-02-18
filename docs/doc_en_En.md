@@ -81,7 +81,7 @@ We can pass aditional atributes for customize our graph, this is the optional at
 
 - data-min -> Set the minimun width of the bars (by default *20*).
 - data-max -> Set the maximun width of the bars (by default *30*).
-- data-sep -> Set the separation between the bars (by default *10*).
+- data-sep -> Set the separation between the bars (by default, it´s calculated automatically).
 - data-color -> Set the bars' color (by default *blue*).
 - data-valcol -> Set the value's color (by default *white*).
 - data-title -> Set a title to the graph (by default *empty*).
@@ -421,4 +421,65 @@ data-posx='20px' data-posy='20px'>
 
 ## AJAX
 
-Coming soon
+We can create and update our canvas elements using AJAX:
+
+For now support (Coming soon, we add support for the rest of the canvas elements):
+
+- graphic.js
+- graphic.min.js
+- lpz.js (Only the graphic part)
+- lpz.min.js (Only the graphic part)
+
+To create a new element, we must be do a AJAX petition for obtain a JSON with the adequate structure (Show the element documentation), then, we must be add the new canvas element using JS/Jquery (It´s recommended to establish a ID), we must be concatenate the JSON in the *data-json*, keeping in mind that, we need to transform the JSON to String unsing the function *JSON.stringify*, then, we must be call the correspondant function.
+
+Here an example:
+
+```JavaScript
+// JQUERY EXAMPLE
+
+// Add a new element using AJAX
+
+$.ajax({
+	method: "GET",
+	url: "http://localhost:8079/proyectos/pruebas/lpzJS/examples/j.json",
+	dataType: "json"
+}).done(function(data){
+	var string = "<canvas id='pp' class='circle_lpz' width='300' height='300' data-json='" + JSON.stringify(data) + "' data-title='cerezas por metro cuadrado'></canvas>";
+	let canvas = $(string); // The canvas is created
+	$("#top_but_lpz").before(canvas); // The canvas is added in the DOM
+}).fail(function(){
+	console.log("fail");
+}).always(function(){
+	let canvas = document.getElementById('pp'); // Even if we use Jquery, selecting the element with JS will avoid problems
+	circle(canvas); // call the draw function
+});
+```
+
+To update a element, we must be do a AJAX petition for obtain a JSON with the adequate structure (Show the element documentation), then, we need to update the *data-json* atributte (It is recommended to have given our canvas an ID to select it), keeping in mind that, we need to transform the JSON to String unsing the function *JSON.stringify*, then, we must be call the correspondant function.
+
+Here an example:
+
+```JavaScript
+// Update a element using AJAX
+
+$.ajax({
+	method: "GET",
+	url: "http://localhost:8079/proyectos/pruebas/lpzJS/examples/u.json",
+	dataType: "json"
+}).done(function(data){
+	$('#circle').attr('data-json', JSON.stringify(data)); // Update json-data
+}).fail(function(){
+	console.log("fail");
+}).always(function(){
+	let canvas = document.getElementById('circle'); // Even if we use Jquery, selecting the element with JS will avoid problems
+	circle(canvas); // call the draw function
+});
+```
+
+Here, we list the differents functions for the canvas elements:
+
+- Graphics:
+	- Graphic: graphic(canvas);
+	- Graphic bar: graphicBar(canvas);
+	- Circle graphic: circle(canvas);
+- ProgressBar: Coming soon
