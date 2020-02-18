@@ -20,6 +20,7 @@ Until now, this library support:
 - [Progress Bar](#progress-bar)
 - [Timer](#timer)
 - [Navigation utilities](#navigation-utilities)
+- [¿How to use Ajax?](#ajax)
 
 ## Instalation
 
@@ -417,3 +418,7 @@ data-posx='20px' data-posy='20px'>
 	<a href="#" data-img='images/equis.png'></a>
 </div>
 ```
+
+## AJAX
+
+Coming soon
