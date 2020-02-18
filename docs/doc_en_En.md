@@ -79,21 +79,31 @@ For draw the graph, we have to pass a JSON, for that, we use the atribute *data-
 
 We can pass aditional atributes for customize our graph, this is the optional atributes:
 
-- data-min -> Set the minimun width of the bars (by default *20*).
-- data-max -> Set the maximun width of the bars (by default *30*).
+- data-min -> Set the minimun width of the bars (by default, it´s calculated automatically).
+- data-max -> Set the maximun width of the bars (by default, it´s calculated automatically).
 - data-sep -> Set the separation between the bars (by default, it´s calculated automatically).
 - data-color -> Set the bars' color (by default *blue*).
 - data-valcol -> Set the value's color (by default *white*).
 - data-title -> Set a title to the graph (by default *empty*).
+- data-sbs -> Set the column name´s maximum character.
+- data-bcolor -> Set the delimiter line´s color (by default *black*).
+- data-lline -> Show the left delimiter line, if the values is 1, the line is show, if it´s 0 no (by default *1*).
+- data-bline -> Show the bottom delimiter line, if the values is 1, the line is show, if it´s 0 no(by default *1*).
 
 Here an example of a complete canvas element:
 ```html
-<canvas class='graphic_bar_lpz' width='500' height='300' data-json='[{"name":"January","value":100},
-{"name":"Febrary","value":300},{"name":"March","value":200},{"name":"April","value":200},
-{"name":"May","value":400},{"name":"June","value":200},{"name":"July","value":200},
-{"name":"August","value":200},{"name":"September","value":200},{"name":"October","value":350},
-{"name":"November","value":200},{"name":"December","value":200}]' data-min='20' data-max='30' 
-data-sep='10' data-color='blue' data-valcol='white' data-title='Cherries per square meter'></canvas>
+<canvas class='graphic_bar_lpz' width='500' height='300' data-json='[{"name":
+"January","value":100},{"name":"Febrary","value":300},{"name":"March","value":200}
+,{"name":"April","value":200},{"name":"May","value":400},{"name":"June",
+"value":200}]' data-min='20' data-max='40' data-sep="15" data-color='blue' 
+data-valcol='white' data-title='Cherries per square meter' data-bcolor='red' 
+data-lline='1' data-bline='1' data-sbs="6"></canvas>
+
+<canvas class='graphic_bar_lpz' width='500' height='300' data-json='[{"name":
+"January","value":100},{"name":"Febrary","value":300},{"name":"March","value":200}
+,{"name":"April","value":200},{"name":"May","value":400},{"name":"June",
+"value":200}]'data-color='green' data-valcol='white' data-title='Cherries per square meter' 
+data-bcolor='red' data-lline='0' data-sbs="20"></canvas>
 ```
 
 ### Circle graph

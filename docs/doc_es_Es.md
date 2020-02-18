@@ -80,21 +80,31 @@ Para pintar la gráfica debemos pasarle un JSON, para ello usaremos data-json, l
 
 Podemos pasarle datos adicionales al canvas para personalizarlo a nuestro gusto, estos campos son opcionales:
 
-- data-min -> establece la anchura mínima de las barras (Por defecto *20*).
-- data-max -> establece la anchura máxima de la barras (Por defecto *30*).
-- data-sep -> establece la separación entre barras (Por defecto se calcula automaticamente).
-- data-color -> establece el color de las barras (Por defecto *blue*).
-- data-valcol -> establece el color de los valores (Por defecto *white*).
-- data-title -> establece un título para la gráfica (Por defecto *vacío*).
+- data-min -> Establece la anchura mínima de las barras (Por defecto se calcula automaticamente).
+- data-max -> Establece la anchura máxima de la barras (Por defecto se calcula automaticamente).
+- data-sep -> Establece la separación entre barras (Por defecto se calcula automaticamente).
+- data-color -> Establece el color de las barras (Por defecto *blue*).
+- data-valcol -> Establece el color de los valores (Por defecto *white*).
+- data-title -> Establece un título para la gráfica (Por defecto *vacío*).
+- data-sbs -> Establece los caracteres máximos de los nombres de las columnas.
+- data-bcolor -> Establece el color de las lineas delimitadoras (Por defecto *black*).
+- data-lline -> Si vale 1 se visualiza la linea derecha, si vale 0 no (Por defecto *1*).
+- data-bline -> Si vale 1 se visualiza la linea inferior, si vale 0 no (Por defecto *1*).
 
 Aquí un ejemplo de un elemento canvas completo:
 ```html
-<canvas class='graphic_bar_lpz' width='500' height='300' data-json='[{"name":"Enero","value":100},
-{"name":"Febrero","value":300},{"name":"Marzo","value":200},{"name":"Abril","value":200},
-{"name":"Mayo","value":400},{"name":"Junio","value":200},{"name":"Julio","value":200},
-{"name":"Agosto","value":200},{"name":"Septiembre","value":200},{"name":"Octubre","value":350},
-{"name":"Noviembre","value":200},{"name":"Diciembre","value":200}]' data-min='20' data-max='30' 
-data-sep='10' data-color='blue' data-valcol='white' data-title='cerezas por metro cuadrado'></canvas>
+<canvas class='graphic_bar_lpz' width='500' height='300' data-json='[{"name":
+"Enero","value":100},{"name":"Febrero","value":300},{"name":"Marzo","value":200}
+,{"name":"Abril","value":200},{"name":"Mayo","value":400},{"name":"Junio",
+"value":200}]' data-min='20' data-max='40' data-sep="15" data-color='blue' 
+data-valcol='white' data-title='Cerezas por metro cuadrado' data-bcolor='red' 
+data-lline='1' data-bline='1' data-sbs="6"></canvas>
+
+<canvas class='graphic_bar_lpz' width='500' height='300' data-json='[{"name":
+"Enero","value":100},{"name":"Febrero","value":300},{"name":"Marzo","value":200},
+{"name":"Abril","value":200},{"name":"Mayo","value":400},{"name":"Junio","value":200}]'
+ data-color='green' data-valcol='white' data-title='Cerezas por metro cuadrado' 
+ data-bcolor='red' data-lline='0' data-sbs="20"></canvas>
 ```
 
 ### Gráficas circulares
