@@ -207,11 +207,16 @@ function graphicBar(canvas){
 	let data = JSON.parse(canvas.dataset.json);
 	let values = [];
 
-	data.forEach(function(object){
-		values.push(object.value);
-	});
+	let cont_val = 0;
 
-	let sep = (canvas.dataset.sep != undefined) ? parseInt(canvas.dataset.sep) : 10;
+  	data.forEach(function(object){
+    	values.push(object.value);
+    	cont_val++;
+  	});
+
+  	let calc_sep = (cWidth / cont_val) - canvas.dataset.max;
+
+  	let sep = (canvas.dataset.sep != undefined) ? parseInt(canvas.dataset.sep) : calc_sep;
 	let maxVal = Math.max(...values);
 	let cut = ((cWidth - (sep * (data.length + 1))) / data.length);
 
