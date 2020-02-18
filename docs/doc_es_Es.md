@@ -431,6 +431,7 @@ Por ahora soporta (Se añadirá soporte para el resto pronto):
 Para crear un nuevo elemento, debemos de hacer una petición AJAX y obtener un JSON con la estructura adecuada (Mirar documentación del elemento), una vez obtenido debemos insertar desde JS/JQuery un nuevo elemento canvas (Se recomienda darle un ID diferente para posterior selección) concatenandole el JSON en data-json, teniendo en cuenta que hay que transformar este JSON a cadena usando la función *JSON.stringify*, luego sólo quedaría llamar a la función correspondiente. A continuación ponemos un ejemplo de como sería el codigo completo:
 
 ```JavaScript
+// EJEMPLO EN JQUERY
 
 // Crear un nuevo objeto Canvas a traves de AJAX
 
