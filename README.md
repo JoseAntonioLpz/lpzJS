@@ -20,6 +20,7 @@ Until now, this library support:
 - [Progress Bar](docs/doc_en_En.md#progress-bar)
 - [Timer](docs/doc_en_En.md#timer)
 - [Navigation utilities](docs/doc_en_En.md#navigation-utilities)
+- [¿How to use Ajax?](docs/doc_es_Es.md#ajax)
 
 # Documentation
 

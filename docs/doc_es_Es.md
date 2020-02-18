@@ -21,6 +21,7 @@ Hasta el momento esta librería da soporte para:
 - [Barras de progreso](#barras-de-progreso)
 - [Temporizadores](#temporizador)
 - [Utilidades de navegación](#navegación)
+- [¿Como usar Ajax?](#ajax)
 
 ## Instalación
 
@@ -415,3 +416,58 @@ data-posx='20px' data-posy='20px'>
 	<a href="#" data-img='images/equis.png'></a>
 </div>
 ```
+
+## AJAX
+
+Podemos crear y actualizar nuestros objetos canvas usando AJAX:
+
+Por ahora soporta (Se añadirá soporte para el resto pronto):
+
+- graphic.js
+- graphic.min.js
+- lpz.js (Solo parte de graphic)
+- lpz.min.js (Solo parte de graphic)
+
+Para crear un nuevo elemento, debemos de hacer una petición AJAX y obtener un JSON con la estructura adecuada (Mirar documentación del elemento), una vez obtenido debemos insertar desde JS/JQuery un nuevo elemento canvas (Se recomienda darle un ID diferente para posterior selección) concatenandole el JSON en data-json, teniendo en cuenta que hay que transformar este JSON a cadena usando la función *JSON.stringify*, luego sólo quedaría llamar a la función correspondiente. A continuación ponemos un ejemplo de como sería el codigo completo:
+
+```JavaScript
+
+// Crear un nuevo objeto Canvas a traves de AJAX
+
+$.ajax({
+	method: "GET",
+	url: "http://localhost:8079/proyectos/pruebas/lpzJS/examples/j.json",
+	dataType: "json"
+}).done(function(data){
+	var string = "<canvas id='pp' class='circle_lpz' width='300' height='300' data-json='" + JSON.stringify(data) + "' data-title='cerezas por metro cuadrado'></canvas>";
+	let canvas = $(string); // Se crea el canvas
+	$("#top_but_lpz").before(canvas); // Se inserta el canvas en el DOM
+}).fail(function(){
+	console.log("fail");
+}).always(function(){
+	let canvas = document.getElementById('pp'); // Aunque usemos Jquery, seleccionar el elemento con JS, nos evitará problemas
+	circle(canvas); // llamar a la función de pintado
+});
+
+// Actualizar un objeto Canvas a traves de AJAX
+
+$.ajax({
+	method: "GET",
+	url: "http://localhost:8079/proyectos/pruebas/lpzJS/examples/u.json",
+	dataType: "json"
+}).done(function(data){
+	$('#circle').attr('data-json', JSON.stringify(data)); //Actualizar campo json-data
+}).fail(function(){
+	console.log("fail");
+}).always(function(){
+	let canvas = document.getElementById('circle'); // Aunque usemos Jquery, seleccionar el elemento con JS, nos evitará problemas
+	circle(canvas); // llamar a la función de pintado
+});
+```
+Aquí listamos las funciones para los diferentes tipos canvas:
+
+- Graphics:
+	- Gráficas: graphic(canvas);
+	- Gráficas de barras: graphicBar(canvas);
+	- Gráficas circulares: circle(canvas);
+- ProgressBar: Proximamente
