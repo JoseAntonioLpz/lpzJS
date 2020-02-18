@@ -1,3 +1,11 @@
+/*
+*
+* AUTHOR: José Antonio López López
+* GITHUB: https://github.com/JoseAntonioLpz
+* REPOSITORY: https://github.com/JoseAntonioLpz/lpzJS
+* LICENSE: MIT
+* 
+*/
 (function(){
 
 	var all = document.getElementsByTagName('canvas');
@@ -58,6 +66,8 @@ function graphic(canvas){
 
 	let cHeight = canvas.height;
 	let cWidth = canvas.width;
+
+	cvx.clearRect(0, 0, cWidth, cHeight);
 
 	let data = JSON.parse(canvas.dataset.json);
 	let title = (canvas.dataset.title != undefined) ? canvas.dataset.title : '';
@@ -127,6 +137,11 @@ function graphic(canvas){
 function circle(canvas){
 	let cvx = canvas.getContext('2d');
 
+	let cHeight = canvas.height;
+	let cWidth = canvas.width;
+
+	cvx.clearRect(0, 0, cWidth, cHeight);
+
 	let data = JSON.parse(canvas.dataset.json);
 	let title = (canvas.dataset.title != undefined) ? canvas.dataset.title : '';
 
@@ -144,19 +159,19 @@ function circle(canvas){
 		eAngle += ((percent * 2) / 100) * Math.PI;
 
 		cvx.beginPath();
-		cvx.moveTo(canvas.width / 2.5,canvas.height / 2.5);
+		cvx.moveTo(cWidth / 2.5, cHeight / 2.5);
 		cvx.fillStyle = object.color;
-		cvx.arc(canvas.width / 2.5,canvas.height / 2.5, canvas.width / 2.5, sAngle, eAngle, false);
+		cvx.arc(cWidth / 2.5,cHeight / 2.5, cWidth / 2.5, sAngle, eAngle, false);
 		cvx.fill(); 
 		cvx.save();
 
 		sAngle = eAngle;
 
 		cvx.beginPath();
-		cvx.fillRect(canvas.width - 65, -9 + (12 * cont), 10, 10);
+		cvx.fillRect(cWidth - 65, -9 + (12 * cont), 10, 10);
 		cvx.fillStyle = "black";
 		cvx.font = "10px Arial";
-		cvx.fillText(object.name, canvas.width - 50, 0 + (12 * cont));
+		cvx.fillText(object.name, cWidth - 50, 0 + (12 * cont));
 		cvx.restore();
 
 		cont++;
@@ -165,7 +180,7 @@ function circle(canvas){
 	cvx.beginPath();
 	cvx.fillStyle = "black";
 	cvx.font = "10px Arial";
-	cvx.fillText(title, 0, canvas.height - 20);
+	cvx.fillText(title, 0, cHeight - 20);
 }
 
 function graphicBar(canvas){
@@ -174,6 +189,9 @@ function graphicBar(canvas){
 	
 	let cWidth = canvas.width;
 	let cHeight = canvas.height;
+	
+	cvx.clearRect(0, 0, cWidth, cHeight);
+
 	let title = (canvas.dataset.title != undefined) ? canvas.dataset.title : '';
 
 	cvx.fillStyle = "black";
@@ -270,6 +288,7 @@ function progressCircle(canvas, multiplier, clock){
 	cvx.beginPath();
 	cvx.font = font;
 	cvx.textAlign = 'center';
+	cvx.fillStyle = (canvas.dataset.cfont != undefined) ? canvas.dataset.cfont : 'black';
 	cvx.textBaseline = 'middle';
 	cvx.fillText(text, cWidth / 2, cHeight / 2);
 }

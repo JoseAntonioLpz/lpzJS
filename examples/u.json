@@ -1,0 +1,32 @@
+[
+   {
+      "name":"Pepe",
+      "value":400,
+      "color":"red"
+   
+},
+   {
+      "name":"Febrero",
+      "value":300,
+      "color":"blue"
+   
+},
+   {
+      "name":"Marzo",
+      "value":200,
+      "color":"green"
+   
+},
+   {
+      "name":"Abril",
+      "value":200,
+      "color":"yellow"
+   
+},
+   {
+      "name":"Mayo",
+      "value":333,
+      "color":"orange"
+   
+}
+]
