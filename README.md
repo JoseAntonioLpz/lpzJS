@@ -29,13 +29,18 @@ Until now, this library support:
 
 # Task List
 
-- Responsive:
-	- [X] Bar graph
-	- [ ] Circle graph
-	- [ ] Lineal graph
-	- [ ] Lineal progress bar
-	- [ ] Circle progress bar
-	- [ ] Semi-circular progress bar
+- Improvement:
+	- [ ] Hover events in graphic
+	- [ ] Responsive:
+		- [X] Bar graph
+		- [ ] Circle graph
+		- [ ] Lineal graph
+		- [ ] Lineal progress bar
+		- [ ] Circle progress bar
+		- [ ] Semi-circular progress bar
+	- [ ] Improve drop-down menu
+- Add funcionality
+	- [ ] Bottom menu in nav_lpz.js
 	
 # Collaborators
 
