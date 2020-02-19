@@ -39,6 +39,7 @@ Until now, this library support:
 		- [ ] Circle progress bar
 		- [ ] Semi-circular progress bar
 	- [ ] Improve drop-down menu
+	- [ ] Try progressBar with AJAX
 - Add funcionality
 	- [ ] Bottom menu in nav_lpz.js
 - [ ] DOC v1.2
