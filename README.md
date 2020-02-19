@@ -26,3 +26,13 @@ Until now, this library support:
 
 - [English documentation](docs/doc_en_En.md)
 - [Documentación en español](docs/doc_es_Es.md)
+
+# Task List
+
+- Responsive:
+	[X] Bar graph
+	[] Circle graph
+	[] Lineal graph
+	[] Lineal progress bar
+	[] Circle progress bar
+	[] Semi-circular progress bar
