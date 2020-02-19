@@ -1,4 +1,4 @@
-# Documentation
+# Documentation 1.1.0
 
 [![License](img/license-mit.svg)](https://www.mit.edu/~amini/LICENSE.md)
 [![npm version](img/npm.svg)](https://www.npmjs.com/package/@joseantoniolpz/lpzjs)
