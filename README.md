@@ -39,4 +39,4 @@ Until now, this library support:
 	
 # Collaborators
 
-- @ocewen -> Develop and testing :heart:
+- [@ocewen](https://github.com/ocewen) -> Develop and testing :heart:
