@@ -254,7 +254,9 @@ function graphicBar(canvas){
 		
 		cvx.fillRect(possAct, (cHeight - 15)- height, cut, height);
 
-		rects.push({x:possAct, y:(cHeight - 15)- height, w:cut, h:height, data:object.name});
+		let valueText = (object.valueText) ? object.valueText : "";
+
+		rects.push({x:possAct, y:(cHeight - 15)- height, w:cut, h:height, data:valueText});
 
 		cvx.fillStyle = "#888888";
 		cvx.font = "12px Sans-serif";
@@ -272,10 +274,16 @@ function graphicBar(canvas){
 		possAct = possAct + cut + sep;
 	});
 	cvx.closePath();
+	if(canvas.dataset.popup === 'false' || canvas.dataset.popup === undefined){
+		return;
+	}
 
 	canvas.addEventListener('mousemove', function(e){
 
-		//cvx.clearRect(0, 0, cWidth, cHeight);
+		var node = document.getElementById('popup');
+		if(node){
+			node.remove();
+		}
 
 		var rect = this.getBoundingClientRect(),
 		x = e.clientX - rect.left,
@@ -290,10 +298,30 @@ function graphicBar(canvas){
 		    var fY = r.y + r.h;
 
 		    if((x >= iX && x <= fX) && (y >= iY && y <= fY)){
-		    	console.log("dentro: " + r.data);
+		    	if(r.data == ""){
+		    		break;
+		    	}
+
+		    	var popup = document.createElement("div");
+		    	var text = document.createTextNode(r.data);
+
+		    	popup.appendChild(text);
+		    	popup.id = "popup";
+
+		    	popup.style.position = "absolute";
+		    	popup.style.left = x + 'px';
+ 				popup.style.top = y + 'px';
+ 				popup.style.backgroundColor = 'white';
+ 				popup.style.border = '1px solid black';
+ 				popup.style.height = '50px';
+ 				popup.style.width = '75px';
+ 				popup.style.textAlign = 'center';
+ 				popup.style.lineHeight = '50px';
+ 				popup.style.borderRadius = '5px';
+
+ 				document.body.appendChild(popup); 
 		    	break;
 		    }
 		  }
-		  //graphicBar(canvas);
 	});
 }
