@@ -27,7 +27,7 @@ Until now, this library support:
 - [English documentation](docs/doc_en_En.md)
 - [Documentación en español](docs/doc_es_Es.md)
 
-# Task List
+# Task List v1.2
 
 - Improvement:
 	- [ ] Hover events in graphic
@@ -41,6 +41,7 @@ Until now, this library support:
 	- [ ] Improve drop-down menu
 - Add funcionality
 	- [ ] Bottom menu in nav_lpz.js
+- [ ] DOC v1.2
 	
 # Collaborators
 
