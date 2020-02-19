@@ -36,3 +36,7 @@ Until now, this library support:
 	- [ ] Lineal progress bar
 	- [ ] Circle progress bar
 	- [ ] Semi-circular progress bar
+	
+# Collaborators
+
+- @ocewen -> Develop and testing :heart:
