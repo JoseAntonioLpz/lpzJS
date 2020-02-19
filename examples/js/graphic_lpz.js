@@ -8,21 +8,27 @@
 */
 (function(){
 
-	var all = document.getElementsByTagName('canvas');
+  var all = document.getElementsByTagName('canvas');
 
-	for(let canvas of all){
-		switch(canvas.className){
-			case 'graphic_bar_lpz':
-				graphicBar(canvas);
-				break;
-			case 'circle_lpz':
-				circle(canvas);
-				break;
-			case 'graphic_lpz':
-				graphic(canvas);
-				break;		
-		}
-	}
+  window.addEventListener('resize', resizeCanvas, false);
+
+  resizeCanvas();
+
+  function resizeCanvas() {
+    for(let canvas of all){
+      switch(canvas.className){
+        case 'graphic_bar_lpz':
+          graphicBar(canvas);
+          break;
+        case 'circle_lpz':
+          circle(canvas);
+          break;
+        case 'graphic_lpz':
+          graphic(canvas);
+          break;    
+      }
+    }
+  }
 
 }());
 
@@ -151,8 +157,12 @@ function circle(canvas){
 function graphicBar(canvas){
 
 	let cvx = canvas.getContext('2d');
+	let parent_width = canvas.parentElement.clientWidth;
+	let ajustW = 25;
+	let ajustH = 10;
 	
-	let cWidth = canvas.width;
+	let cWidth = (canvas.dataset.widthbar != 'auto') ? canvas.dataset.widthbar : parent_width;
+	canvas.width = cWidth;
 	let cHeight = canvas.height;
 	
 	cvx.clearRect(0, 0, cWidth, cHeight);
@@ -161,14 +171,14 @@ function graphicBar(canvas){
 
 	cvx.fillStyle = "black";
 	cvx.font = "10px Arial";
-	cvx.fillText(title, 25 , 12);
+	cvx.fillText(title, 35 , 22);
 
 	cvx.beginPath();
-	cvx.moveTo(0,0);
+	cvx.moveTo(ajustW,ajustH);
 	if(canvas.dataset.lline == undefined || canvas.dataset.lline == '1')
-		cvx.lineTo(0, cHeight - 15);
+		cvx.lineTo(ajustW, cHeight - 15);
 	else
-		cvx.moveTo(0, cHeight - 15);
+		cvx.moveTo(ajustW, cHeight - 15);
 
 	if(canvas.dataset.bline == undefined || canvas.dataset.bline == '1')
 		cvx.lineTo(cWidth, cHeight - 15);
@@ -187,14 +197,14 @@ function graphicBar(canvas){
   	});
 
 	let maxVal = Math.max(...values);
-	let initialH = 1;
+	let initialH = ajustH;
 	let initialRest = maxVal;
 	let rest = maxVal / 4;
 
 	cvx.beginPath();
 	for (var i = 0; i < 4; i++) {
 
-		cvx.moveTo(0,initialH);
+		cvx.moveTo(25,initialH);
 
 		cvx.lineTo(cWidth, initialH);
 		cvx.lineWidth = 1;
@@ -205,10 +215,10 @@ function graphicBar(canvas){
 		cvx.font = "10px Arial";
 		cvx.textAlign = 'center';
 
-		cvx.fillText(initialRest, 10, initialH + 12);
+		cvx.fillText(initialRest, ajustH, initialH + 3);
 
 		initialRest -= rest;
-		initialH += ((cHeight - 15) / 4);
+		initialH += ((cHeight - ajustH - 15) / 4);
 	}
 	cvx.closePath();
 
@@ -219,35 +229,42 @@ function graphicBar(canvas){
 	let calc_sep = (cWidth / cont_val) - max;
   	let sep = (canvas.dataset.sep != undefined) ? parseInt(canvas.dataset.sep) : calc_sep;
 
+  	let aj = ajustW / cont_val;
+
 	let cut = ((cWidth - (sep * (data.length + 1))) / data.length);
 
 	if(min > cut){
-		cut = parseInt(min);
+		cut = parseInt(min) - aj;
 	}else if(max < cut){
-		cut = parseInt(max);
+		cut = parseInt(max) - aj;
 	};
 
-	let possAct = sep;
+	let possAct = sep + ajustW;
 
 	let color = (canvas.dataset.color != undefined) ? canvas.dataset.color : 'blue';
 	let valcol = (canvas.dataset.valcol != undefined) ? canvas.dataset.valcol : 'white';
 
+	let rects = [];
+
 	cvx.beginPath();
 	data.forEach(function(object){
-		let height = (object.value * (cHeight - 15)) / maxVal;
+		let height = (object.value * (cHeight - ajustH - 15)) / maxVal;
 
 		cvx.fillStyle = color;
+		
 		cvx.fillRect(possAct, (cHeight - 15)- height, cut, height);
 
-		cvx.fillStyle = "black";
-		cvx.font = "10px Arial";
+		rects.push({x:possAct, y:(cHeight - 15)- height, w:cut, h:height, data:object.name});
+
+		cvx.fillStyle = "#888888";
+		cvx.font = "12px Sans-serif";
 		cvx.textAlign = 'center';
 		let name = (canvas.dataset.sbs != undefined) ? object.name.substring(0,parseInt(canvas.dataset.sbs)) : object.name;
-		cvx.fillText(name, possAct + (cut / 2) , cHeight - 5);
+		cvx.fillText(name, possAct + (cut / 2) , cHeight - 2);
 		cvx.save();
 
 		cvx.fillStyle = valcol;
-		cvx.font = "10px Arial";
+		cvx.font = "12px Sans-serif";
 		cvx.textAlign = 'center';
 		cvx.fillText(object.value, possAct + (cut / 2), cHeight - height);
 		cvx.restore();
@@ -255,9 +272,28 @@ function graphicBar(canvas){
 		possAct = possAct + cut + sep;
 	});
 	cvx.closePath();
-}
 
-// NO HACE SUBSTRING
-// TEXTO CENTRADO
-// NUEVA MANERA DE VISUALIZACION DE LA BARRA
-// SINO SE ESPECIFICA EL MIN Y MAX AHORA ES RESPONSIVE
+	canvas.addEventListener('mousemove', function(e){
+
+		//cvx.clearRect(0, 0, cWidth, cHeight);
+
+		var rect = this.getBoundingClientRect(),
+		x = e.clientX - rect.left,
+		y = e.clientY - rect.top,
+		i = 0, r;
+
+		while(r = rects[i++]) {
+		    var iX = r.x;
+		    var fX = r.x + r.w;
+
+		    var iY = r.y;
+		    var fY = r.y + r.h;
+
+		    if((x >= iX && x <= fX) && (y >= iY && y <= fY)){
+		    	console.log("dentro: " + r.data);
+		    	break;
+		    }
+		  }
+		  //graphicBar(canvas);
+	});
+}
