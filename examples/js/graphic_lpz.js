@@ -197,6 +197,8 @@ function graphicBar(canvas){
   	});
 
 	let maxVal = Math.max(...values);
+	let minVal = Math.min(...values);
+	maxVal += minVal
 	let initialH = ajustH;
 	let initialRest = maxVal;
 	let rest = maxVal / 4;
@@ -243,6 +245,7 @@ function graphicBar(canvas){
 
 	let color = (canvas.dataset.color != undefined) ? canvas.dataset.color : 'blue';
 	let valcol = (canvas.dataset.valcol != undefined) ? canvas.dataset.valcol : 'white';
+	let cgrad = canvas.dataset.cgrad;
 
 	let rects = [];
 
@@ -250,7 +253,14 @@ function graphicBar(canvas){
 	data.forEach(function(object){
 		let height = (object.value * (cHeight - ajustH - 15)) / maxVal;
 
-		cvx.fillStyle = color;
+		if(cgrad == undefined){
+			cvx.fillStyle = color;
+		}else{
+			grad = cvx.createLinearGradient(0,cHeight,0,0);
+			grad.addColorStop(0,cgrad);
+			grad.addColorStop(1,color);
+			cvx.fillStyle = grad;
+		}
 		
 		cvx.fillRect(possAct, (cHeight - 15)- height, cut, height);
 
@@ -265,10 +275,13 @@ function graphicBar(canvas){
 		cvx.fillText(name, possAct + (cut / 2) , cHeight - 2);
 		cvx.save();
 
-		cvx.fillStyle = valcol;
-		cvx.font = "12px Sans-serif";
-		cvx.textAlign = 'center';
-		cvx.fillText(object.value, possAct + (cut / 2), cHeight - height);
+		if(canvas.dataset.valvis == "true"){
+			cvx.fillStyle = valcol;
+			cvx.font = "12px Sans-serif";
+			cvx.textAlign = 'center';
+			cvx.fillText(object.value, possAct + (cut / 2), cHeight - height);
+		}
+		
 		cvx.restore();
 
 		possAct = possAct + cut + sep;
@@ -280,12 +293,8 @@ function graphicBar(canvas){
 
 	canvas.addEventListener('mousemove', function(e){
 
-		var node = document.getElementById('popup');
-		if(node){
-			node.remove();
-		}
-
-		var rect = this.getBoundingClientRect(),
+		var node = document.getElementById('popup'), 
+		rect = this.getBoundingClientRect(),
 		x = e.clientX - rect.left,
 		y = e.clientY - rect.top,
 		i = 0, r;
@@ -299,29 +308,52 @@ function graphicBar(canvas){
 
 		    if((x >= iX && x <= fX) && (y >= iY && y <= fY)){
 		    	if(r.data == ""){
+		    		if(node){
+		    			node.remove();
+		    		}
 		    		break;
 		    	}
 
-		    	var popup = document.createElement("div");
-		    	var text = document.createTextNode(r.data);
+		    	if(!node){
+		    		node = document.createElement("div");
 
-		    	popup.appendChild(text);
-		    	popup.id = "popup";
+			    	node.innerHTML = r.data; 
+			    	node.id = "popup";
+			    	node.dataset.x = x;
+			    	node.dataset.y = y;
 
-		    	popup.style.position = "absolute";
-		    	popup.style.left = x + 'px';
- 				popup.style.top = y + 'px';
- 				popup.style.backgroundColor = 'white';
- 				popup.style.border = '1px solid black';
- 				popup.style.height = '50px';
- 				popup.style.width = '75px';
- 				popup.style.textAlign = 'center';
- 				popup.style.lineHeight = '50px';
- 				popup.style.borderRadius = '5px';
+			    	//node.style.position = "absolute";
+					node.style.backgroundColor = 'rgba(255,255,255,0.8)';
+					node.style.border = '1px solid #bebebe';
+					node.style.textAlign = 'center';
+					node.style.borderRadius = '5px';
+					node.style.padding= '7px';
+					node.style.fontWeight = 'bold';
 
- 				document.body.appendChild(popup); 
-		    	break;
+					canvas.parentElement.appendChild(node);
+
+					if(canvas.dataset.popabs != undefined || canvas.dataset.popabs == "false"){
+			    		node.style.position = "absolute";
+			    		document.addEventListener('mousemove', function(el){
+		 					node.style.left = (window.event.clientX + 10)+ 'px';
+		 					node.style.top = (window.event.clientY + 0)+ 'px';
+		 				});
+			    	}
+			    	break;
+		    	}else{
+		    		node.innerHTML = r.data;
+		    	}
+		    }else if(node && ((node.dataset.x >= iX && node.dataset.x <= fX) 
+		    	&& (node.dataset.y >= iY && node.dataset.y <= fY))){
+		    	node.remove();
 		    }
-		  }
+		}
+	});
+
+	canvas.addEventListener('mouseout', function(e){
+		var node = document.getElementById('popup');
+		if(node){
+			node.remove();
+		}
 	});
 }
