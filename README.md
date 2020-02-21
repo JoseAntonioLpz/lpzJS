@@ -30,7 +30,7 @@ Until now, this library support:
 # Task List v1.2
 
 - Improvement:
-	- [ ] Hover events in graphic
+	- [X] Hover events in Bar Graphic
 	- [ ] Responsive:
 		- [X] Bar graph
 		- [ ] Circle graph
