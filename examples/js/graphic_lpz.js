@@ -33,10 +33,14 @@
 }());
 
 function graphic(canvas){
+
 	let cvx = canvas.getContext('2d');
 
+	let parent_width = canvas.parentElement.clientWidth;
+	
+	let cWidth = (canvas.dataset.widthbar != 'auto') ? canvas.dataset.widthbar : parent_width;
+	canvas.width = cWidth;
 	let cHeight = canvas.height;
-	let cWidth = canvas.width;
 
 	cvx.clearRect(0, 0, cWidth, cHeight);
 
@@ -45,8 +49,10 @@ function graphic(canvas){
 	let color = (canvas.dataset.color != undefined) ? canvas.dataset.color : 'blue';
 
 	let values = [];
+	let cont_val = 0;
 	data.forEach(function(object){
 		values.push(object.value);
+		cont_val++;
 	});
 
 	let maxVal = Math.max(...values);
@@ -77,7 +83,8 @@ function graphic(canvas){
 	let lx = 25;
 	let lh = (cHeight - 15) - (((data[0].value * (cHeight - 15)) / maxVal) - 15);
 
-	let sep = (canvas.dataset.sep != undefined) ? canvas.dataset.sep : '55';
+	let calc_sep = (cWidth / cont_val);
+  	let sep = (canvas.dataset.sep != undefined) ? parseInt(canvas.dataset.sep) : calc_sep;
 
 	data.forEach(function(object){
 
