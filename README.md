@@ -34,7 +34,7 @@ Until now, this library support:
 	- [ ] Responsive:
 		- [X] Bar graph
 		- [ ] Circle graph
-		- [ ] Lineal graph
+		- [X] Lineal graph
 		- [ ] Lineal progress bar
 		- [ ] Circle progress bar
 		- [ ] Semi-circular progress bar
