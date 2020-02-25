@@ -30,10 +30,13 @@ Until now, this library support:
 # Task List v1.2
 
 - Improvement:
-	- [X] Hover events in Bar Graphic
+	- [X] Hover events in grahic_lpz.js
+		- [X] Bar graph
+		- [X] Circle graph
+		- [X] Lineal graph
 	- [ ] Responsive:
 		- [X] Bar graph
-		- [ ] Circle graph
+		- [X] Circle graph (Experimental phase)
 		- [X] Lineal graph
 		- [ ] Lineal progress bar
 		- [ ] Circle progress bar
