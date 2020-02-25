@@ -56,6 +56,7 @@ function graphic(canvas){
 	});
 
 	let maxVal = Math.max(...values);
+	maxVal += Math.min(...values);
 
 	cvx.beginPath();
 	cvx.strokeStyle = "black";
@@ -86,6 +87,8 @@ function graphic(canvas){
 	let calc_sep = (cWidth / cont_val);
   	let sep = (canvas.dataset.sep != undefined) ? parseInt(canvas.dataset.sep) : calc_sep;
 
+  	let rects = [];
+
 	data.forEach(function(object){
 
 		let calcPos = (cHeight - 15) - (((object.value * (cHeight - 15)) / maxVal) - 15);
@@ -106,19 +109,92 @@ function graphic(canvas){
 		cvx.font = "10px Arial";
 		cvx.fillText(object.name, x, cHeight);
 
+		let valueText = (object.valueText) ? object.valueText : "";
+
+		rects.push({x:x, y:calcPos, data:valueText});
+
 		lx = x;
 		lh = calcPos;
 		x += parseInt(sep);
+	});
+	cvx.closePath();
+	if(canvas.dataset.popup === 'false' || canvas.dataset.popup === undefined){
+		return;
+	}
+
+	canvas.addEventListener('mousemove', function(e){
+
+		var node = document.getElementById('popup'), 
+		rect = this.getBoundingClientRect(),
+		x = e.clientX - rect.left,
+		y = e.clientY - rect.top,
+		i = 0, r;
+
+		while(r = rects[i++]) {
+		    if((x >= r.x - 3 && x <= r.x + 3) && (y >= r.y - 3 && y <= r.y + 3)){
+		    	if(r.data == ""){
+		    		if(node){
+		    			node.remove();
+		    		}
+		    		break;
+		    	}
+
+		    	if(!node){
+		    		node = document.createElement("div");
+
+			    	node.innerHTML = r.data; 
+			    	node.id = "popup";
+			    	node.dataset.x = x;
+			    	node.dataset.y = y;
+
+					node.style.backgroundColor = 'rgba(255,255,255,0.8)';
+					node.style.border = '1px solid #bebebe';
+					node.style.textAlign = 'center';
+					node.style.borderRadius = '5px';
+					node.style.padding= '7px';
+					node.style.fontWeight = 'bold';
+
+					canvas.parentElement.appendChild(node);
+
+					if(canvas.dataset.popabs != undefined || canvas.dataset.popabs == "false"){
+			    		node.style.position = "absolute";
+			    		document.addEventListener('mousemove', function(el){
+		 					node.style.left = (window.event.clientX + 10)+ 'px';
+		 					node.style.top = (window.event.clientY + 0)+ 'px';
+		 				});
+			    	}
+			    	break;
+		    	}else{
+		    		node.innerHTML = r.data;
+		    	}
+		    }else if(node && ((node.dataset.x <= r.x + 3 && node.dataset.x >= r.x - 3) 
+		    	&& (node.dataset.y <= r.y + 3  && node.dataset.y >= r.y - 3))){
+		    	node.remove();
+		    }
+		}
+	});
+	canvas.addEventListener('mouseout', function(e){
+		var node = document.getElementById('popup');
+		if(node){
+			node.remove();
+		}
 	});
 }
 
 function circle(canvas){
 	let cvx = canvas.getContext('2d');
 
-	let cHeight = canvas.height;
+	let parent_width = canvas.parentElement.clientWidth;
+	let parent_height = canvas.parentElement.clientHeight;
+
 	let cWidth = canvas.width;
+	let cHeight = canvas.height;
 
 	cvx.clearRect(0, 0, cWidth, cHeight);
+	
+	/*let cWidth = (canvas.dataset.widthbar != 'auto') ? canvas.dataset.widthbar : parent_width;
+	canvas.width = cWidth;
+	let cHeight = canvas.height;*/
 
 	let data = JSON.parse(canvas.dataset.json);
 	let title = (canvas.dataset.title != undefined) ? canvas.dataset.title : '';
@@ -132,33 +208,112 @@ function circle(canvas){
 	let eAngle = 0;
 
 	let cont = 1;
+	let rects = [];
 	data.forEach(function(object){
 		let percent = (( object.value * 100) / sum);
 		eAngle += ((percent * 2) / 100) * Math.PI;
 
+		cx = cWidth / 2;
+		cy = cHeight / 2;
+		r =  cWidth / 2
+
 		cvx.beginPath();
-		cvx.moveTo(cWidth / 2.5, cHeight / 2.5);
+		cvx.moveTo(cWidth / 2, cHeight / 2);
 		cvx.fillStyle = object.color;
-		cvx.arc(cWidth / 2.5,cHeight / 2.5, cWidth / 2.5, sAngle, eAngle, false);
+		//cvx.arc(cWidth / 2.5,cHeight / 2.5, cWidth / 2.5, sAngle, eAngle, false);
+		cvx.arc(cx,cy,r, sAngle, eAngle, false);
 		cvx.fill(); 
-		cvx.save();
+		//cvx.save();
+
+		rects.push({color:object.color, name:object.name, value:object.value});
 
 		sAngle = eAngle;
 
-		cvx.beginPath();
+		/*cvx.beginPath();
 		cvx.fillRect(cWidth - 65, -9 + (12 * cont), 10, 10);
 		cvx.fillStyle = "black";
 		cvx.font = "10px Arial";
 		cvx.fillText(object.name, cWidth - 50, 0 + (12 * cont));
-		cvx.restore();
+		cvx.restore();*/
 
 		cont++;
 	});
 
-	cvx.beginPath();
+	cvx.closePath();
+	if(canvas.dataset.popup === 'false' || canvas.dataset.popup === undefined){
+		return;
+	}
+
+	canvas.addEventListener('mousemove', function(e){
+
+		var node = document.getElementById('popup'), 
+		rect = this.getBoundingClientRect(),
+		x = e.clientX - rect.left,
+		y = e.clientY - rect.top,
+		i = 0, re;
+
+		let imageData = cvx.getImageData(x, y, 1, 1);
+		let data = imageData.data;
+		let r,g,b;
+
+		for(j = 0, n = data.length; j < n; j += 4) {
+			r = data[j];
+			g = data[j+1];
+			b = data[j+2];
+		}
+
+		let hex = rgbToHex([r,g,b]);
+
+		while(re = rects[i++]) {
+		    if(re.color == hex){
+		    	if(!node){
+		    		node = document.createElement("div");
+
+			    	node.innerHTML = re.name + " " + re.value; 
+			    	node.id = "popup";
+			    	node.dataset.x = x;
+			    	node.dataset.y = y;
+			    	node.dataset.color = hex;
+
+					node.style.backgroundColor = 'rgba(255,255,255,0.8)';
+					node.style.border = '1px solid #bebebe';
+					node.style.textAlign = 'center';
+					node.style.borderRadius = '5px';
+					node.style.padding= '7px';
+					node.style.fontWeight = 'bold';
+
+					canvas.parentElement.appendChild(node);
+
+					if(canvas.dataset.popabs != undefined || canvas.dataset.popabs == "false"){
+			    		node.style.position = "absolute";
+			    		document.addEventListener('mousemove', function(el){
+		 					node.style.left = (window.event.clientX + 10)+ 'px';
+		 					node.style.top = (window.event.clientY + 0)+ 'px';
+		 				});
+			    	}
+			    	break;
+		    	}
+		    }else if(node && node.dataset.color != hex){
+		    	node.remove();
+		    }
+		}
+	});
+
+	canvas.addEventListener('mouseout', function(e){
+		var node = document.getElementById('popup');
+		if(node){
+			node.remove();
+		}
+	});
+
+	/*cvx.beginPath();
 	cvx.fillStyle = "black";
 	cvx.font = "10px Arial";
-	cvx.fillText(title, 0, cHeight - 20);
+	cvx.fillText(title, 0, cHeight - 20);*/
+}
+
+function rgbToHex(arr) {
+  return "#" + ((1 << 24) + (arr[0] << 16) + (arr[1] << 8) + arr[2]).toString(16).slice(1);
 }
 
 function graphicBar(canvas){
@@ -329,7 +484,6 @@ function graphicBar(canvas){
 			    	node.dataset.x = x;
 			    	node.dataset.y = y;
 
-			    	//node.style.position = "absolute";
 					node.style.backgroundColor = 'rgba(255,255,255,0.8)';
 					node.style.border = '1px solid #bebebe';
 					node.style.textAlign = 'center';
