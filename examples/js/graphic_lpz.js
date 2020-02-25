@@ -156,7 +156,7 @@ function graphic(canvas){
 
 					canvas.parentElement.appendChild(node);
 
-					if(canvas.dataset.popabs != undefined || canvas.dataset.popabs == "false"){
+					if(canvas.dataset.popabs != undefined){
 			    		node.style.position = "absolute";
 			    		document.addEventListener('mousemove', function(el){
 		 					node.style.left = (window.event.clientX + 10)+ 'px';
@@ -187,14 +187,25 @@ function circle(canvas){
 	let parent_width = canvas.parentElement.clientWidth;
 	let parent_height = canvas.parentElement.clientHeight;
 
-	let cWidth = canvas.width;
-	let cHeight = canvas.height;
+	/*let cWidth = canvas.width;
+	let cHeight = canvas.height;*/
 
-	cvx.clearRect(0, 0, cWidth, cHeight);
-	
 	/*let cWidth = (canvas.dataset.widthbar != 'auto') ? canvas.dataset.widthbar : parent_width;
 	canvas.width = cWidth;
-	let cHeight = canvas.height;*/
+	let cHeight = cWidth;
+	canvas.height = cHeight;*/
+
+	if(canvas.dataset.widthbar != 'auto'){
+		cWidth = canvas.width;
+		cHeight = canvas.height;
+	}else{
+		cWidth = parent_width;
+		cHeight = cWidth; //para que sea cuadrado
+		canvas.width = cWidth;
+		canvas.height = cHeight;
+	}
+
+	cvx.clearRect(0, 0, cWidth, cHeight);
 
 	let data = JSON.parse(canvas.dataset.json);
 	let title = (canvas.dataset.title != undefined) ? canvas.dataset.title : '';
@@ -284,7 +295,7 @@ function circle(canvas){
 
 					canvas.parentElement.appendChild(node);
 
-					if(canvas.dataset.popabs != undefined || canvas.dataset.popabs == "false"){
+					if(canvas.dataset.popabs != undefined){
 			    		node.style.position = "absolute";
 			    		document.addEventListener('mousemove', function(el){
 		 					node.style.left = (window.event.clientX + 10)+ 'px';
@@ -493,7 +504,7 @@ function graphicBar(canvas){
 
 					canvas.parentElement.appendChild(node);
 
-					if(canvas.dataset.popabs != undefined || canvas.dataset.popabs == "false"){
+					if(canvas.dataset.popabs != undefined){
 			    		node.style.position = "absolute";
 			    		document.addEventListener('mousemove', function(el){
 		 					node.style.left = (window.event.clientX + 10)+ 'px';
