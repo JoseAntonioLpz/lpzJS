@@ -38,7 +38,7 @@ Until now, this library support:
 		- [X] Bar graph
 		- [X] Circle graph (Experimental phase)
 		- [X] Lineal graph
-		- [ ] Lineal progress bar
+		- [X] Lineal progress bar
 		- [ ] Circle progress bar
 		- [ ] Semi-circular progress bar
 	- [ ] Improve drop-down menu
