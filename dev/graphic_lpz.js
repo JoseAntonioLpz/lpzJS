@@ -38,7 +38,7 @@ function graphic(canvas){
 
 	let parent_width = canvas.parentElement.clientWidth;
 	
-	let cWidth = (canvas.dataset.widthbar != 'auto') ? canvas.dataset.widthbar : parent_width;
+	let cWidth = (canvas.dataset.widthbar != 'auto') ? parseInt(canvas.dataset.widthbar) : parent_width;
 	canvas.width = cWidth;
 	let cHeight = canvas.height;
 
@@ -198,19 +198,22 @@ function circle(canvas){
 	if(canvas.dataset.widthbar != 'auto'){
 		cWidth = canvas.width;
 		cHeight = canvas.height;
+		canvas.height += 50;
 	}else{
 		cWidth = parent_width;
 		cHeight = cWidth; //para que sea cuadrado
 		canvas.width = cWidth;
-		canvas.height = cHeight;
+		canvas.height = cHeight + 50;
 	}
+
+	console.log(cWidth);
 
 	cvx.clearRect(0, 0, cWidth, cHeight);
 
 	let data = JSON.parse(canvas.dataset.json);
 	let title = (canvas.dataset.title != undefined) ? canvas.dataset.title : '';
 
-	var sum = 0; // La suma de todos lso values es el 100% que corresponde con 2 * Math.PI
+	var sum = 0; // La suma de todos los values es el 100% que corresponde con 2 * Math.PI
 	data.forEach(function(object){
 		sum += parseInt(object.value);
 	});
@@ -240,12 +243,14 @@ function circle(canvas){
 
 		sAngle = eAngle;
 
-		/*cvx.beginPath();
-		cvx.fillRect(cWidth - 65, -9 + (12 * cont), 10, 10);
+		cvx.beginPath();
+		//cvx.fillRect(cWidth - 65, -9 + (12 * cont), 10, 10);
+		cvx.fillRect(cWidth - 65, (cHeight + 50) - (12 * cont), 10, 10);
 		cvx.fillStyle = "black";
 		cvx.font = "10px Arial";
-		cvx.fillText(object.name, cWidth - 50, 0 + (12 * cont));
-		cvx.restore();*/
+		//cvx.fillText(object.name, cWidth - 50, 0 + (12 * cont));
+		cvx.fillText(object.name, cWidth - 50, (cHeight + 58) - (12 * cont));
+		cvx.restore();
 
 		cont++;
 	});
@@ -317,10 +322,10 @@ function circle(canvas){
 		}
 	});
 
-	/*cvx.beginPath();
+	cvx.beginPath();
 	cvx.fillStyle = "black";
 	cvx.font = "10px Arial";
-	cvx.fillText(title, 0, cHeight - 20);*/
+	cvx.fillText(title, 0, (cHeight + 50));
 }
 
 function rgbToHex(arr) {
@@ -334,7 +339,7 @@ function graphicBar(canvas){
 	let ajustW = 25;
 	let ajustH = 10;
 	
-	let cWidth = (canvas.dataset.widthbar != 'auto') ? canvas.dataset.widthbar : parent_width;
+	let cWidth = (canvas.dataset.widthbar != 'auto') ? parseInt(canvas.dataset.widthbar) : parent_width;
 	canvas.width = cWidth;
 	let cHeight = canvas.height;
 	

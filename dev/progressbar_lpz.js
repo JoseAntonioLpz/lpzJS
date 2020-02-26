@@ -24,7 +24,7 @@
 
 }());
 
-function drawProgressCircle(canvas){
+/*function drawProgressCircle(canvas){
 	let className = canvas.className;
 
 	switch(className){
@@ -35,21 +35,29 @@ function drawProgressCircle(canvas){
 			progressCircle(canvas, -1, true);
 			break;			
 	}
-}
+}*/
 
 function progressCircle(canvas, multiplier, clock){
 
 	let cvx = canvas.getContext('2d');
-	let cHeight = canvas.height;
-	let cWidth = canvas.width;
+	/*let cHeight = canvas.height;
+	let cWidth = canvas.width;*/
+
+	let parent_width = canvas.parentElement.clientWidth;
+	
+	let cWidth = (canvas.dataset.widthbar != 'auto') ? parseInt(canvas.dataset.widthbar) : parent_width;
+	canvas.width = cWidth;
+	let cHeight = cWidth;
+	canvas.height = cHeight;
+
+	cvx.clearRect(0, 0, cWidth, cHeight);
+
 	let text = canvas.dataset.text;
 	let percent = canvas.dataset.percent;
-	let color = (canvas. dataset.color != undefined) ? canvas. dataset.color : 'blue';
+	let color = (canvas.dataset.color != undefined) ? canvas.dataset.color : 'blue';
 	let font = (canvas.dataset.font != undefined) ? canvas.dataset.font : '10px Arial';
 	let bulk = (canvas.dataset.bulk != undefined) ? canvas.dataset.bulk : '5';
 	let mostrate = (canvas.dataset.mostrate != undefined) ? canvas.dataset.mostrate : '0';
-
-	cvx.clearRect(0, 0, cWidth, cHeight);
 
 	cvx.beginPath();
 	cvx.lineWidth = bulk;
@@ -80,7 +88,7 @@ function progressCircle(canvas, multiplier, clock){
 	cvx.textAlign = 'center';
 	cvx.textBaseline = 'middle';
 	cvx.fillStyle = (canvas.dataset.cfont != undefined) ? canvas.dataset.cfont : 'black';
-	console.log(canvas.dataset.cfont);
+	//console.log(canvas.dataset.cfont);
 	cvx.fillText(text, cWidth / 2, cHeight / 2);
 }
 
@@ -89,7 +97,7 @@ function progressBar(canvas){
 
 	let parent_width = canvas.parentElement.clientWidth;
 	
-	let cWidth = (canvas.dataset.widthbar != 'auto') ? canvas.dataset.widthbar : parent_width;
+	let cWidth = (canvas.dataset.widthbar != 'auto') ? parseInt(canvas.dataset.widthbar) : parent_width;
 	canvas.width = cWidth;
 	let cHeight = canvas.height;
 
