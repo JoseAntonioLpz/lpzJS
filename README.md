@@ -34,18 +34,21 @@ Until now, this library support:
 		- [X] Bar graph
 		- [X] Circle graph
 		- [X] Lineal graph
-	- [ ] Responsive:
+	- [X] Responsive:
 		- [X] Bar graph
 		- [X] Circle graph (Experimental phase)
 		- [X] Lineal graph
 		- [X] Lineal progress bar
-		- [ ] Circle progress bar
-		- [ ] Semi-circular progress bar
+		- [X] Circle progress bar (Experimental phase)
+		- [X] Semi-circular progress bar (Experimental phase)
 	- [ ] Improve drop-down menu
-	- [ ] Try progressBar with AJAX
+	- [ ] Try progressBar with AJAX and DOC
 - Add funcionality
 	- [ ] Bottom menu in nav_lpz.js
 - [ ] DOC v1.2
+	- [ ] graphs
+	- [ ] progressbar
+	- [ ] nav
 	
 # Collaborators
 
